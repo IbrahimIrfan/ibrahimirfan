@@ -1,0 +1,246 @@
+@font-face {
+    font-family: Equal;
+    src: url('EqualSans.ttf');
+}
+
+body {
+    background-color: #141414 !important;
+    font-family: Equal !important;
+    color: white !important;
+    line-height: 2em !important;
+}
+
+hr {
+    margin-top: 20px !important;
+    margin-bottom: -10px !important;
+}
+
+.bold {
+    font-weight: bolder !important;
+}
+
+.small {
+    font-size: 30px !important;
+}
+
+.big {
+    font-size: 45px !important;
+}
+
+.name{
+  margin-top: 70px !important;
+}
+
+.content {
+    padding-left: 7.5% !important;
+    padding-right: 7.5% !important;
+    padding-top: 100px !important;
+}
+
+.title {
+    padding-top: 10px !important;
+    font-size: 30px !important;
+    color: grey !important;
+}
+
+.subheading {
+    padding-top: 50px !important;
+    font-size: 35px !important;
+}
+
+.projectImg {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.projectDesc {
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: justify;
+}
+
+.btn {
+    padding: 5px 20px !important;
+    border-radius: 7.5px !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    background-color: white !important;
+    border-bottom: 3px solid #5d5b5b !important;
+    text-shadow: 0px -2px #5d5b5b !important;
+}
+
+.btn:hover {
+    cursor: pointer !important;
+}
+
+.social:hover{
+  cursor: pointer !important;
+}
+
+.social {
+    height: 30 !important;
+    margin-top: 15px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.footer{
+  margin-top: 50px !important;
+  margin-bottom: 400px !important;
+}
+
+.contactMe {
+  margin-left: 40px !important;
+}
+
+.contactMe a {
+  font-size: 37px !important;
+  padding: 10px 40px !important;
+}
+
+.profileImg{
+  top: 0 !important;
+  left: 50% !important;
+  margin-left:-50px !important;
+  border-radius: 50% !important;
+  width: 100px !important;
+  position: absolute !important;
+}
+
+.fadeIn {
+    opacity: 0 !important;
+}
+
+.mdl-card {
+    width: 25vw !important;
+    min-width: 100% !important;
+    background: none !important;
+}
+
+.mdl-card:hover{
+  cursor: pointer;
+}
+
+figcaption{
+    font-size: 30px;
+    margin-top: 15px;
+    color: #d7d7d7 !important;
+}
+
+
+/*Time for the CSS*/
+* {margin: 0; padding: 0;}
+body {background: #ccc;}
+
+.slider{
+	position: relative;
+	/*Instead of height we will use padding*/
+	padding-top: 320px; /*That helps bring the labels down*/
+}
+
+
+/*Last thing remaining is to add transitions*/
+.slider>img{
+	position: absolute;
+	left: 0; top: 0;
+	transition: all 0.5s;
+}
+
+.slider input[name='slide_switch'] {
+	display: none;
+}
+
+.slider label {
+	/*Lets add some spacing for the dots*/
+  position: relative;
+	margin: 15px 0 0px 15px;
+  font-size: 150px;
+	float: left;
+	cursor: pointer;
+	transition: all 0.5s;
+	opacity: 0.6;
+}
+
+/*Time to add the click effects*/
+.slider input[name='slide_switch']:checked+label {
+	border-color: #666;
+	opacity: 1;
+}
+/*Clicking any thumbnail now should change its opacity(style)*/
+/*Time to work on the main images*/
+.slider input[name='slide_switch'] ~ img {
+	opacity: 0;
+	transform: scale(1.1);
+}
+/*That hides all main images at a 110% size
+On click the images will be displayed at normal size to complete the effect
+*/
+.slider input[name='slide_switch']:checked+label+img {
+	opacity: 1;
+	transform: scale(1);
+}
+/*Clicking on any thumbnail now should activate the image related to it*/
+
+.galleryImg{
+  width: 80%;
+}
+
+.langs {
+  font-size: 25;
+}
+
+
+.blinking-cursor {
+    font-weight: 100 !important;
+    font-size: 55px !important;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+    from, to {
+        color: transparent ;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-ms-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-o-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
