@@ -104,7 +104,7 @@ var projects = [{
         "description": "My final project for Grade 11 Computer Science - a two-player Chess game built with Turing. One of the most difficult yet satisfying projects I have taken on. The final product was nearly fully functional - all but checkmate detection was working.",
         "thumbnail": "chess.jpg",
         "images": ['chess.jpg', 'chess2.jpg', 'chess3.jpg', 'chess4.jpg'],
-        "languages": ['The one and only - Turing']
+        "languages": ['Turing']
     },
     {
         "id": 12,
