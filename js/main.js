@@ -40,7 +40,7 @@ var projects = [{
         "width": 640,
         "description": "At my high school, a full day conference is hosted every year where incoming students come to the shool for a day of talks, workshops, and introductions.<br><br>When 350 grade 8 students are coming to your school from many different locations, you need someone to take on the hectic registration process - that was my role.<br><br>I decided to make a conference website, showcasing the plan of the day and with important information for students and teacher supervisors. They were also able to register directly from the website - which allowed us to send various schools a simple link instead of a long google form.<br><br>Students had a choice of what workshops they wished to attend, with their preference indicated on the registration form. As workshops were filled on a first come first serve basis, I implemented a live \"Workshop Status\" display, indicating the spaces currently available in each workshop. Along with this, I created a program which would generate nametags for every student attending the conference.<br><br> Overall, this was a great opportunity for me to experience how to properly manage a registration system and how to correctly deal with data. In addition - the conference turned out very successful, with no major hiccups.",
         "thumbnail": "bridgeday.jpg",
-        "images": ['bridgeday.jpg'],
+        "images": ['bridgeday.jpg', 'bridgeday2.jpg', 'bridgeday3.jpg', 'bridgeday4.jpg', 'nametags.jpg'],
         "languages": ['HTML', 'CSS', 'JS', 'PHP', 'SQL', 'jQuery', 'AJAX']
     },
     {
