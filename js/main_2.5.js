@@ -135,7 +135,7 @@ $(window).on("load", function () {
 	}), $("#downArrow").on("click", function () {
 		t($(".content"))
 	}), a(), $(document).on("click", ".mdl-card", function (e) {
-		if (num = $(e.currentTarget).attr("project"), document.location.href = "#modal", projectClicked = projects[num], $(".remodal").empty(), toAppend = '<center><button data-remodal-action="close" class="remodal-close"></button>', toAppend += '<h1 style="font-size: 45px; font-family: Equal;">' + projectClicked.title + "</h1>", 0 != projectClicked.images.length) {
+		if (num = $(e.currentTarget).attr("project"), document.location.href = "#modal", projectClicked = projects[num], window.history.pushState("index", "Project", "/index.html?project=" + num + "#modal"),$(".remodal").empty(), toAppend = '<center><button data-remodal-action="close" class="remodal-close"></button>', toAppend += '<h1 style="font-size: 45px; font-family: Equal;">' + projectClicked.title + "</h1>", 0 != projectClicked.images.length) {
 			toAppend += '<div class="csslider1 no-autoplay" style="max-width: 640px;">';
 			for (var t = 0; t < projectClicked.images.length; t++) toAppend += '<input name="cs_anchor1" id="cs_slide1_' + t + '" type="radio" class="cs_anchor slide"', 0 == t && (toAppend += ' checked=""'), toAppend += ">";
 			toAppend += "<ul>";
