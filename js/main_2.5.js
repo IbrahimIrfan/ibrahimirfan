@@ -109,7 +109,7 @@ $(window).on("load", function () {
 }
 
 var queryNum = getParameterByName("project");
-  if(queryNum != null){
+  if(queryNum != null && window.location.hash.substr(1) = "modal"){
     i(parseInt(queryNum));
   }
 
