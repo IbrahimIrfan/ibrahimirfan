@@ -13,11 +13,11 @@ var projects = [{
 	images: [],
 	type: "personal",
 	thumbnail: "drive.png",
-	languages: ["HTML", "CSS", "JS", "Swift 3"]
+	languages: ["Swift 3"]
 }, {
 	id: 2,
 	title: "DECA Exam Parser",
-	description: "Last year, my school's performance in DECA, a student business competition, was disappointing. Overall scores for competitors are determined by an interview and multiple-choice exam; we did great on the interviews, but lacked on the exams. <br><br> Since the exams that DECA releases are not in a user-friendly format, it was a hassle to practice, and it hindered our success. Not only that, our club was doing registration for over 200 members by hand.<br><br>Thus, I decided to completely redo our existing website, creating a program would read the practice exams that DECA releases and output self-marking online forms. I then implemented a registration and login system for members to take those exams under their name on our website; allowing the executives to monitor their progress.<br><br> Other functionality included executive-only announcement posting (along with email notifications once an announcement is posted), as well as other resources for each event.",
+	description: "<a href='https://github.com/IbrahimIrfan/DECA-exam-parser'>Exam Parser</a> &middot; <a href='https://github.com/IbrahimIrfan/DECA-Web-App'>Web Application</a> Created a program to parse poorly formatted PDF practice exams and output self marking online forms for my high school's DECA club (a case competition). <br><br> I also implemented a registration and login system with PHP and SQL for members to take those exams under their name on our website; allowing the executives to monitor their progress.<br><br> Other functionality included executive-only announcement posting (along with email notifications once an announcement is posted), as well as other resources for each event.",
 	images: ["DECA2.jpg", "DECA3.jpg", "DECA4.jpg", "DECA5.jpg", "DECA6.jpg", "DECA7.jpg", "DECA8.jpg", "DECA9.jpg"],
 	type: "personal",
 	thumbnail: "DECA.png",
