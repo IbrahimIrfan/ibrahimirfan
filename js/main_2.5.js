@@ -33,7 +33,7 @@ var projects = [{
 }, {
 	id: 4,
 	title: "BridgeDay Conference Registration System",
-	description: '<a target='_blank' href="https://github.com/IbrahimIrfan/bridgeday">GitHub</a> <br><br>Created a conference registration system for over 300 students. As workshops were filled on a first come first serve basis, I implemented a live "Workshop Status" display, indicating the spaces currently available in each workshop. Additionally, I created a program which would generate nametags for every student attending the conference.<br><br>',
+	description: '<a target="_blank" href="https://github.com/IbrahimIrfan/bridgeday">GitHub</a> <br><br>Created a conference registration system for over 300 students. As workshops were filled on a first come first serve basis, I implemented a live "Workshop Status" display, indicating the spaces currently available in each workshop. Additionally, I created a program which would generate nametags for every student attending the conference.<br><br>',
 
 	images: ["bridgeday.jpg", "bridgeday2.jpg", "bridgeday3.jpg", "bridgeday4.jpg", "nametags.jpg"],
 	type: "personal",
