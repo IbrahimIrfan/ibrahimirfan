@@ -200,6 +200,13 @@ html {
 	border-radius: 10%
 }
 
+.projectImg:hover {
+     animation-name: fadeShadow;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+         -webkit-animation-fill-mode: forwards;
+}
+
 .projectDesc {
 	font-size: 20px;
 	font-family: sans-serif;
@@ -381,6 +388,13 @@ body {
 .inner.three {
 	animation: rotate-three 1s linear infinite;
 	border-top: 3px solid #efeffa
+}
+
+@keyframes fadeShadow {
+    to {  -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+}
 }
 
 @keyframes rotate-one {
