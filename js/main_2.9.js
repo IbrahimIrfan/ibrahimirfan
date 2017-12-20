@@ -42,7 +42,7 @@ var projects = [{
 }, {
 	id: 5,
 	title: "Self-Aiming Cannon",
-	description: "<a target='_blank' href='https://github.com/edwinzhng/automatic-cannon'>GitHub</a><br><br>Self-aiming cannon that automatically calculates trajectories towards a target built using Python, Go, and a RaspberryPi. Recognizes a face with SkyBiometry API after taking a picture and aims towards it. Includes remote control with keyboard input through a socket connection.<br><br><center><img src='img/source.gif' width='80%'></center>",
+	description: "<a target='_blank' href='https://github.com/edwinzhng/automatic-cannon'>GitHub</a><br><br>Self-aiming cannon that automatically calculates trajectories towards a target built using Python, Go, and a RaspberryPi. Recognizes a face with SkyBiometry API after taking a picture and aims towards it. Includes remote control with keyboard input through a socket connection.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/_aEoWWzmeTo?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
 	images: ["cannon.jpg", "cannon2.jpg"],
 	type: "school",
 	thumbnail: "cannon.jpg",
