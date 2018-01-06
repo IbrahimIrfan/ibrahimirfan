@@ -98,7 +98,7 @@ var projects = [{
 	languages: ["HTML", "CSS", "JS", "jQuery", "PHP"]
 }];
 $(window).on("load", function () {
-  particlesJS.load('particles-js', "particles.json", function() {
+  particlesJS.load('particles-js', "js/particles.json", function() {
   console.log('callback - particles.js config loaded');
 });
 
