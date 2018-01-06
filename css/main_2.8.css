@@ -455,6 +455,7 @@ box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
 }
 
 .blinking-cursor {
+  margin-left: -20px!important;
 	font-weight: 100!important;
 	font-size: 70px!important;
 	color: #fff!important;
