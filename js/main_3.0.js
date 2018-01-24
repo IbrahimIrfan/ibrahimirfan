@@ -91,7 +91,7 @@ var projects = [{
 }, {
 	id: 11,
 	title: "ITEE Group Canada",
-	description: "<a target='_blank' href='http://iteegroupcanada.com/index.html'>View</a> &middot; <a target='_blank' href='https://github.com/IbrahimIrfan/itee'>GitHub</a><br><br>Freelance develoment work for a small local consulting firm, ITEE Group Canada. Created an infomational website dislaying information with an email contact form.",
+	description: "<a target='_blank' href='http://iteegroupcanada.com/index.html'>View</a> &middot; <a target='_blank' href='https://github.com/IbrahimIrfan/itee'>GitHub</a><br><br>Freelance develoment work for a small local consulting firm, ITEE Group Canada. Created an informational website displaying information with an email contact form.",
 	images: ["itee.png", "itee2.png"],
 	type: "work",
 	thumbnail: "thinktank.jpg",
