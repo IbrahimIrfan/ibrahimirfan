@@ -1,9 +1,9 @@
-var projects = [{
+var projects = {
 	id: 0,
 	title: "Point-To-Speech",
 	description: "<a target='_blank' href='https://devpost.com/software/point-to-speech-rvsa0y'>MasseyHacks 3 - 3rd Place Finalist.</a><br><br>Created a device to help blind people read regular pages of text using simple, intuitive hand gestures. A Raspberry Pi with a connected camera was attached to PVC pipe. The paper was placed below the camera, with a LeapMotion attached with a 3D printed stand in front of it.<br><br> Once the user places the paper in position, the camera takes a picture and sends it to a server. Then, the accompanying web application uses <a href='http://tesseract.projectnaptha.com/' target='_blank'>TesseractJS</a> to parse the text.<br><br> Using calculated offset and conversion factors, the coordinates returned by the program were mapped for the LeapMotion - so that the word had a location in physical space.<br><br> Then, when the user points to a word on the page, the web app will say the word using <a href='https://responsivevoice.org/' target='_blank'>ResponsiveVoiceJS</a>. ",
 	images: ["MH1.jpg", "MH2.jpg", "MH3.jpg", "MH4.jpg"],
-	type: "hack",
+	order: 2,
 	thumbnail: "MH1.jpg",
 	languages: ["HTML", "CSS", "JS", "PHP", "Python", "Raspberry Pi", "Leap Motion", "jQuery", "node.js", "AJAX"]
 }, {
@@ -11,7 +11,7 @@ var projects = [{
 	title: "DriveBud",
 	description: "<a target='_blank' href='https://github.com/IbrahimIrfan/drivebudapp'>GitHub</a><br><br>For my group's SHAD Valley project, we decided to address the yearly theme of reducing environmental footprint with DriveBud.<br><br>Partnering with my employer Geotab, a large fleet management telematics company, we used their GO7 Device to track vehicle data. This device would plug into a customers car and send statistics to the DriveBud app. The app presents the data to the user in a fun, friendly way and makes eco-friendly driving appealing.<br><br>Our project team will be advancing to the National stage in October.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/ctLM8qvnsoc' frameborder='0' allowfullscreen></iframe>",
 	images: [],
-	type: "personal",
+	order: 8
 	thumbnail: "drive.png",
 	languages: ["Swift 3"]
 }, {
@@ -96,4 +96,4 @@ var projects = [{
 	type: "work",
 	thumbnail: "thinktank.jpg",
 	languages: ["HTML", "CSS", "JS", "jQuery", "PHP"]
-}];
+};
