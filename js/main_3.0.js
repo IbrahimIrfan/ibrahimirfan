@@ -43,43 +43,24 @@ $(window).on("load", function() {
         })
     }
 
-    function i(num) {
-        if (document.location.href = "#modal", projectClicked = projects[num], window.history.pushState("index", "Project", "/?project=" + num + "#modal"), $(".remodal").empty(), toAppend = '<center><button data-remodal-action="close" class="remodal-close"></button>', toAppend += '<h1 style="font-size: 45px; font-family: Equal;">' + projectClicked.title + "</h1>", 0 != projectClicked.images.length) {
-            toAppend += '<div class="csslider1 no-autoplay" style="max-width: 640px;">';
-            for (var t = 0; t < projectClicked.images.length; t++) toAppend += '<input name="cs_anchor1" id="cs_slide1_' + t + '" type="radio" class="cs_anchor slide"', 0 == t && (toAppend += ' checked=""'), toAppend += ">";
-            toAppend += "<ul>";
-            for (var t = 0; t < projectClicked.images.length; t++) 0 == t && (toAppend += '<li class="cs_skeleton"><img src="cssslider_files/csss_images1/' + projectClicked.images[t] + '" style="width: 100%;"></li>'), toAppend += '<li class="num' + t + ' img slide"> <img src="cssslider_files/csss_images1/' + projectClicked.images[t] + '" alt="' + projectClicked.title + '" title="' + projectClicked.title + '"></li>';
-            toAppend += '</ul><div class="cs_arrowprev">';
-            for (var t = 0; t < projectClicked.images.length; t++) toAppend += '<label class="num' + t + '" for="cs_slide1_' + t + '"><span><i></i><b></b></span></label>';
-            toAppend += '</div><div class="cs_arrownext">';
-            for (var t = 0; t < projectClicked.images.length; t++) toAppend += '<label class="num' + t + '" for="cs_slide1_' + t + '"><span><i></i><b></b></span></label>';
-            toAppend += "</div></div>"
-        }
-        toAppend += '</center><div class="langs">' + projectClicked.languages[0];
-        for (var t = 1; t < projectClicked.languages.length; t++) toAppend += ", " + projectClicked.languages[t];
-        toAppend += '</div><br><p class="projectDesc">' + projectClicked.description + "</p>", toAppend += '<button data-remodal-action="confirm" class="remodal-confirm">O K</button>', $(".remodal").append(toAppend)
-    }
 
     function o(e, t, a) {
         e.fadeOut(t, function() {
             e.attr("src", a), e.fadeIn(t)
         })
     }
-	$("#downArrow").hover(function() {
+    $("#downArrow").hover(function() {
         o($(this), 150, "img/icons/greenArrow.png")
     }, function() {
         o($(this), 150, "img/icons/whiteArrow.png")
     });
 
-	$("#downArrow").on("click", function() {
+    $("#downArrow").on("click", function() {
         t($(".content"))
     })
-	$(document).on("click", ".mdl-card", function(e) {
-        i($(e.currentTarget).attr("project"));
-    })
-	$(".loader-wrapper").fadeOut("slow");
-	a();
-	$(document).scroll(function() {
+    $(".loader-wrapper").fadeOut("slow");
+    a();
+    $(document).scroll(function() {
         a()
     })
 });
