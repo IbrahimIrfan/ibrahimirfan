@@ -190,7 +190,7 @@
             </div>
             <div ng-controller="projects" class="mdl-grid mdl-container">
                 <div class="mdl-cell mdl-cell--4-col" ng-repeat="p in projects | orderBy: 'order'">
-                    <div project="{{p.id}}" class="mdl-card-square mdl-card" ng-click="loadProj(p.id)">
+                    <div project="{{p.id}}" class="mdl-card-square mdl-card" ng-click="projectClicked(p.id)">
                         <img src="img/thumbnails/{{p.thumbnail}}" class="projectImg" alt="{{p.title}}">
                         <center>
                             <figcaption>{{p.title}}</figcaption>
