@@ -1,4 +1,4 @@
-var app = angular.module("portfolio", ["ngSanitize"]);
+var app = angular.module("portfolio", []);
 
 app.controller("projects", function($scope) {
     $scope.projects = projects;
@@ -8,3 +8,9 @@ app.controller("projects", function($scope) {
 		window.history.pushState("index", "Project", "/?project=" + id + "#modal");
 	}
 });
+
+app.filter("trustThis", ["$sce", function($sce){
+	return function(text){
+		return $sce.trustAsHtml(text);
+	};
+}]);
