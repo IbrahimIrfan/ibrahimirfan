@@ -75,7 +75,7 @@
     </script>
 </head>
 
-<body ng-app="portfolio">
+<body ng-app="portfolio" ng-controller="projects">
     <div class="loader-wrapper">
         <div class="loader">
             <div class="inner one"></div>
@@ -84,18 +84,21 @@
         </div>
     </div>
     <div class="everything-wrapper">
-        <div ng-controller="projects" class="remodal" data-remodal-id="modal">
+        <div class="remodal" data-remodal-id="modal">
             <center><button data-remodal-action="close" class="remodal-close"></button>
 
-                <h1 style="font-size: 45px; font-family: Equal;"> {{currentProject.title}} </h1>
+                <h1 style="font-size: 45px; font-family: Equal;" ng-bind="currentProject.title"></h1>
 
                 <div ng-if="currentProject.images.length != 0" class="csslider1 no-autoplay" style="max-width: 640px;">
-                    <input ng-if="$index == 0" name="cs_anchor1" ng-repeat="img in currentProject.images" id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide" checked>
-                    <input ng-if="$index != 0" name="cs_anchor1" ng-repeat="img in currentProject.images" id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide">
+                    <input ng-if="$index == 0" name="cs_anchor1" ng-repeat="img in currentProject.images"
+                        id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide"
+                        checked>
+                    <input ng-if="$index != 0" name="cs_anchor1" ng-repeat="img in currentProject.images"
+                        id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide">
                     <ul>
                         <li ng-repeat="img in currentProject.images" class="{{$index==0 ? 'cs_skeleton' : 'num' + $index + ' img slide'}}">
-							<img src="csssilder_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
-							title="{{currentProject.title}}">
+                            <img src="csssilder_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
+                                title="{{currentProject.title}}">
                         </li>
                     </ul>
 
@@ -188,7 +191,7 @@
                 <br>
                 <div class="subheading fadeIn">Projects</div>
             </div>
-            <div ng-controller="projects" class="mdl-grid mdl-container">
+            <div class="mdl-grid mdl-container">
                 <div class="mdl-cell mdl-cell--4-col" ng-repeat="p in projects | orderBy: 'order'">
                     <div project="{{p.id}}" class="mdl-card-square mdl-card" ng-click="projectClicked(p.id)">
                         <img src="img/thumbnails/{{p.thumbnail}}" class="projectImg" alt="{{p.title}}">
