@@ -5,6 +5,6 @@ app.controller("projects", function($scope) {
 	$scope.projectClicked = function(id){
 		$scope.currentProject = $scope.projects[id];
         document.location.href = "#modal";
-		window.history.pushState("index", "Project", "/?project=" + num + "#modal");
+		window.history.pushState("index", "Project", "/?project=" + id + "#modal");
 	}
 });
