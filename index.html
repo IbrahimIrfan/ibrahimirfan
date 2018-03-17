@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
         type="text/javascript">
-
         < script >
             ! function()
             {
@@ -97,19 +96,23 @@
                     <input ng-if="$index != 0" name="cs_anchor1" ng-repeat="img in currentProject.images"
                         id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide">
                     <ul>
-                        <li ng-repeat="img in currentProject.images" class="{{$index==0 ? 'cs_skeleton' : 'num' + $index + ' img slide'}}">
+                        <li ng-if="$index == 0" ng-repeat="img in currentProject.images" class="cs_skeleton'">
+                            <img src="csssilder_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
+                                title="{{currentProject.title}}">
+                        </li>
+						<li ng-if="$index != 0" ng-repeat="img in currentProject.images" class="num{{$index}} img slide">
                             <img src="csssilder_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
                                 title="{{currentProject.title}}">
                         </li>
                     </ul>
 
                     <div class="cs_arrowprev">
-                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{+$index}}">
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
                     <div class="cs_arrownext">
-                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{+$index}}">
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
