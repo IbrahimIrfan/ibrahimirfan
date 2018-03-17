@@ -1,4 +1,4 @@
-var app = angular.module("portfolio", []);
+var app = angular.module("portfolio", ["ngSanitize"]);
 
 app.controller("projects", function($scope) {
     $scope.projects = projects;
