@@ -90,27 +90,22 @@
                 <h1 style="font-size: 45px; font-family: Equal;"> {{currentProject.title}} </h1>;
 
                 <div ng-if="currentProject.images.length != 0" class="csslider1 no-autoplay" style="max-width: 640px;">
-					<input name="cs_anchor1" ng-repeat="img in currentProject.images" id={{"cs_slide_1" + $index}}
-                        type="radio" class="cs_anchor slide" {{$index==0 ?
-                        'checked': ''}}>
+                    <input ng-if="$index == 0" name="cs_anchor1" ng-repeat="img in currentProject.images" id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide" checked>
+                    <input ng-if="$index != 0" name="cs_anchor1" ng-repeat="img in currentProject.images" id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide">
                     <ul>
-                        <li ng-repeat="img in currentProject.images" class={{$index==0 ? "cs_skeleton"
-                            : "num" + $index + " img slide"}}>
-                            <img src={{ "csssilder_files/csss_images1/" + img}} style="width: 100%;" {{$index==0
-                                ? '' :
-                                'alt="currentProject.title" title="currentProject.title"'}}>
+                        <li ng-repeat="img in currentProject.images" class="{{$index==0 ? 'cs_skeleton' : 'num' + $index + ' img slide'}}">
+							<img src="csssilder_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
+							title="{{currentProject.title}}">
                         </li>
                     </ul>
 
                     <div class="cs_arrowprev">
-                        <label ng-repeat="img in currentProject.images" class={{ "num" + $index}} for={{
-                            "cs_slide_1" +$index}}>
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{+$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
                     <div class="cs_arrownext">
-                        <label ng-repeat="img in currentProject.images" class={{ "num" + $index}} for={{
-                            "cs_slide_1" +$index}}>
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1{{+$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
