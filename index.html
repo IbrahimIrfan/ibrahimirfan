@@ -87,7 +87,7 @@
         <div ng-controller="projects" class="remodal" data-remodal-id="modal">
             <center><button data-remodal-action="close" class="remodal-close"></button>
 
-                <h1 style="font-size: 45px; font-family: Equal;"> {{currentProject.title}} </h1>;
+                <h1 style="font-size: 45px; font-family: Equal;"> {{currentProject.title}} </h1>
 
                 <div ng-if="currentProject.images.length != 0" class="csslider1 no-autoplay" style="max-width: 640px;">
                     <input ng-if="$index == 0" name="cs_anchor1" ng-repeat="img in currentProject.images" id="cs_slide_1{{$index}}" type="radio" class="cs_anchor slide" checked>
