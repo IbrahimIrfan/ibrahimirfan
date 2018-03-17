@@ -91,10 +91,10 @@
 
                 <div ng-if="currentProject.images.length != 0" class="csslider1 no-autoplay" style="max-width: 640px;">
                     <input ng-if="$index == 0" name="cs_anchor1" ng-repeat="img in currentProject.images"
-                        id="cs_slide_1_{{$index}}" type="radio" class="cs_anchor slide"
+                        id="cs_slide1_{{$index}}" type="radio" class="cs_anchor slide"
                         checked>
                     <input ng-if="$index != 0" name="cs_anchor1" ng-repeat="img in currentProject.images"
-                        id="cs_slide_1_{{$index}}" type="radio" class="cs_anchor slide">
+                        id="cs_slide1_{{$index}}" type="radio" class="cs_anchor slide">
                     <ul>
                         <li ng-if="$index == 0" ng-repeat="img in currentProject.images" class="cs_skeleton'">
                             <img src="cssslider_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
@@ -107,12 +107,12 @@
                     </ul>
 
                     <div class="cs_arrowprev">
-                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1_{{$index}}">
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide1_{{$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
                     <div class="cs_arrownext">
-                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide_1_{{$index}}">
+                        <label ng-repeat="img in currentProject.images" class="num{{$index}}" for="cs_slide1_{{$index}}">
 							<span><i></i><b></b></span>
 						</label>
                     </div>
