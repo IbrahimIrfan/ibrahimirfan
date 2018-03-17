@@ -118,7 +118,7 @@
 
             <div class="langs">{{currentProject.languages.join(', ')}}</div>
             <br>
-            <p class="projectDesc" ng-bind-html="currentProject.description | toTrust"></p>
+            <p class="projectDesc" ng-bind-html="currentProject.description | trustThis"></p>
 
             <button data-remodal-action="confirm" class="remodal-confirm">O K</button>
         </div>
