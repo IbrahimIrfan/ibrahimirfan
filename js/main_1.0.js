@@ -27,9 +27,9 @@ app.controller("projects", function($scope) {
     $scope.queryNum = $scope.getParameterByName("project");
     $scope.queryNum2 = $scope.getParameterByName("p");
     if ($scope.queryNum != null && window.location.hash.substr(1) == "modal") {
-        projectClicked(parseInt($scope.queryNum));
+        $scope.projectClicked(parseInt($scope.queryNum));
     } else if ($scope.queryNum2 != null && window.location.hash.substr(1) == "modal") {
-        projectClicked(parseInt($scope.queryNum2));
+       	$scope.projectClicked(parseInt($scope.queryNum2));
     }
 
 });
