@@ -97,10 +97,10 @@
                         id="cs_slide1_{{$index}}" type="radio" class="cs_anchor slide">
                     <ul>
                         <li class="cs_skeleton">
-                            <img src="cssslider_files/csss_images1/{{currentProject.images[0]}}" style="width: 100%;" alt="{{currentProject.title}}"
-                                title="{{currentProject.title}}">
+                            <img src="cssslider_files/csss_images1/{{currentProject.images[0]}}" style="width: 100%;"
+                                alt="{{currentProject.title}}" title="{{currentProject.title}}">
                         </li>
-						<li ng-repeat="img in currentProject.images" class="num{{$index}} img slide">
+                        <li ng-repeat="img in currentProject.images" class="num{{$index}} img slide">
                             <img src="cssslider_files/csss_images1/{{img}}" style="width: 100%;" alt="{{currentProject.title}}"
                                 title="{{currentProject.title}}">
                         </li>
@@ -144,7 +144,7 @@
                 </center>
             </div>
             <div id="downArrowWrapper">
-                <center> <img id="downArrow" src="img/icons/whiteArrow.png"></center>
+				<center> <img ng-mouseover="currentArrow = !currentArrow" id="downArrow" src="{{arrows[currentArrow]}}"></center>
             </div>
         </div>
         <div class="content remodal-bg">

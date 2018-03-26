@@ -3,24 +3,6 @@ $(window).on("load", function() {
         console.log('callback - particles.js config loaded');
     });
 
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    var queryNum = getParameterByName("project");
-    var queryNum2 = getParameterByName("p");
-    if (queryNum != null && window.location.hash.substr(1) == "modal") {
-        i(parseInt(queryNum));
-    } else if (queryNum2 != null && window.location.hash.substr(1) == "modal") {
-        i(parseInt(queryNum2));
-    }
-
 
     function e(e) {
         e.css("margin-top", "+=30px"), e.animate({
@@ -58,6 +40,7 @@ $(window).on("load", function() {
     $("#downArrow").on("click", function() {
         t($(".content"))
     })
+
     $(".loader-wrapper").fadeOut("slow");
     a();
     $(document).scroll(function() {
