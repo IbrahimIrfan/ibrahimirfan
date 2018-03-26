@@ -20,9 +20,14 @@ app.controller("projects", function($scope) {
     }
 
 	$scope.arrows = ["img/icons/whiteArrow.png", "img/icons/greenArrow.png"]
-	$scope.currentArrow = 0;
 	// todo: make arrow fade out/in
-	// make arrow click go to ".content" on ng-click
+	$scope.inv = function(a){
+		return 1 - a;
+	}
+
+	$scope.moveDown = function() {
+		// make arrow click go to ".content" on ng-click
+	}
 
     $scope.queryNum = $scope.getParameterByName("project");
     $scope.queryNum2 = $scope.getParameterByName("p");
