@@ -25,21 +25,11 @@ $(window).on("load", function() {
         })
     }
 
-
     function o(e, t, a) {
         e.fadeOut(t, function() {
             e.attr("src", a), e.fadeIn(t)
         })
     }
-    $("#downArrow").hover(function() {
-        o($(this), 150, "img/icons/greenArrow.png")
-    }, function() {
-        o($(this), 150, "img/icons/whiteArrow.png")
-    });
-
-    $("#downArrow").on("click", function() {
-        t($(".content"))
-    })
 
     $(".loader-wrapper").fadeOut("slow");
     a();

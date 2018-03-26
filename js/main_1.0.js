@@ -20,13 +20,15 @@ app.controller("projects", function($scope) {
 
 	$scope.arrows = ["img/icons/whiteArrow.png", "img/icons/greenArrow.png"]
 	$scope.currentArrow = 0;
+	// todo: make arrow fade out/in
+	// make arrow click go to ".content" on ng-click
 
-    $scope.queryNum = getParameterByName("project");
-    $scope.queryNum2 = getParameterByName("p");
+    $scope.queryNum = $scope.getParameterByName("project");
+    $scope.queryNum2 = $scope.getParameterByName("p");
     if ($scope.queryNum != null && window.location.hash.substr(1) == "modal") {
-        i(parseInt($scope.queryNum));
+        projectClicked(parseInt($scope.queryNum));
     } else if ($scope.queryNum2 != null && window.location.hash.substr(1) == "modal") {
-        i(parseInt($scope.queryNum2));
+        projectClicked(parseInt($scope.queryNum2));
     }
 
 });
