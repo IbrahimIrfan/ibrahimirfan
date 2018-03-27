@@ -89,7 +89,7 @@ var projects = [{
 	thumbnail: "geotab.png",
 	languages: ["Google Apps Script"]
 }, {
-	id: 12,
+	id: 11,
 	title: "ITEE Group Canada",
 	description: "<a target='_blank' href='http://iteegroupcanada.com/index.html'>View</a> &middot; <a target='_blank' href='https://github.com/IbrahimIrfan/itee'>GitHub</a><br><br>Freelance develoment work for a small local consulting firm, ITEE Group Canada. Created an informational website displaying company services with an email contact form.",
 	images: ["itee.png", "itee2.png"],
