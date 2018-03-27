@@ -146,10 +146,10 @@
                 </center>
             </div>
             <div id="downArrowWrapper">
-				<center> <img ng-init="currentArrow=0" du-smooth-scroll ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
+				<center> <img ng-init="currentArrow=0" du-smooth-scroll="#scroll" ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
             </div>
         </div>
-        <div class="content remodal-bg">
+        <div class="content remodal-bg" id="scroll">
             <div class="margined">
                 <div class="subheading fadeIn">About Me</div>
                 <div class="paragraph">Hi! I'm a software developer studying Software Engineering at the
