@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
         type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.2/angular-scroll.min.js"
+        type="text/javascript">
         < script >
             ! function()
             {
@@ -144,7 +146,7 @@
                 </center>
             </div>
             <div id="downArrowWrapper">
-				<center> <img ng-init="currentArrow=0" ng-click="moveDown()" ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
+				<center> <img ng-init="currentArrow=0" du-smooth-scroll ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
             </div>
         </div>
         <div class="content remodal-bg">
@@ -214,7 +216,7 @@
                 </div>
                 <br>
                 <div class="accTitle">Loran Scholarship Semi-Finalist</div>
-                <div class="accDesc">Recognized in the top 8% of applicants for Canada’s most prestigious
+                <div class="accDesc">Recognized in the top 8% of applicants for Canada's most prestigious
                     scholarship.
                 </div>
                 <br>

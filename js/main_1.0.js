@@ -1,4 +1,4 @@
-var app = angular.module("portfolio", []);
+var app = angular.module("portfolio", ["duScroll"]);
 
 app.controller("projects", function($scope) {
 	$scope.projects = projects;
