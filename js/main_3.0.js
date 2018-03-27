@@ -1,5 +1,4 @@
 $(window).on("load", function() {
-    particlesJS.load('particles-js', "js/particles.json");
 
 
     function e(e) {

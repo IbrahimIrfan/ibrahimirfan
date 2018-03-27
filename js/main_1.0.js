@@ -1,9 +1,10 @@
+particlesJS.load('particles-js', "js/particles.json");
+
 var app = angular.module("portfolio", ["duScroll"]);
 
 app.controller("projects", function($scope) {
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
-		console.log("this");
 		$scope.currentProject = $scope.projects[id];
 		document.location.href = "#modal";
 		window.history.pushState("index", "Project", "/?project=" + id + "#modal");
@@ -22,13 +23,12 @@ app.controller("projects", function($scope) {
 	$scope.arrows = ["img/icons/whiteArrow.png", "img/icons/greenArrow.png"]
 
 	$scope.queryNum = $scope.getParameterByName("project");
-	$scope.queryNum2 = $scope.getParameterByName("p");
+	$scope.queryNumShort = $scope.getParameterByName("p");
 	if ($scope.queryNum != null && window.location.hash.substr(1) == "modal") {
 		$scope.projectClicked(parseInt($scope.queryNum));
-	} else if ($scope.queryNum2 != null && window.location.hash.substr(1) == "modal") {
-		$scope.projectClicked(parseInt($scope.queryNum2));
+	} else if ($scope.queryNumShort != null && window.location.hash.substr(1) == "modal") {
+		$scope.projectClicked(parseInt($scope.queryNumShort));
 	}
-
 });
 
 app.filter("trustThis", ["$sce", function($sce){
