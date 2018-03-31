@@ -1,6 +1,10 @@
 particlesJS.load('particles-js', "js/particles.json");
 
-var app = angular.module("portfolio", ["duScroll"]);
+var app = angular.module("portfolio", ["ngAnimate", "duScroll"]);
+
+angular.element(function () {
+    console.log('page loading completed');
+});
 
 app.controller("projects", function($scope) {
 	$scope.projects = projects;
