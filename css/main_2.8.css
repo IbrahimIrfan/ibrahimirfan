@@ -388,7 +388,7 @@ body {
 }
 
 .loader-wrapper.ng-leave {
-	transition:1s linear all;
+	transition:10s linear all;
 	opacity:1;
 }
 .loader-wrapper.ng-leave.ng-leave-active {
