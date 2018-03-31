@@ -388,11 +388,11 @@ body {
 }
 
 .loader-wrapper.ng-leave {
-  transition:0.5s linear all;
-  opacity:1;
+	transition:1s linear all;
+	opacity:1;
 }
 .loader-wrapper.ng-leave.ng-leave-active {
-  opacity:0;
+	opacity:0;
 }
 
 .loader {
@@ -429,10 +429,10 @@ body {
 }
 
 @keyframes fadeShadow {
-    to {  -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
-}
+	to {  -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+	}
 }
 
 @keyframes rotate-one {
@@ -463,7 +463,7 @@ box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
 }
 
 .blinking-cursor {
-  margin-left: -20px!important;
+	margin-left: -20px!important;
 
 	font-weight: 100!important;
 	font-size: 70px!important;
@@ -555,7 +555,7 @@ box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
 		margin: 0!important
 	}
 
-  .workDate {
-    display: none;
-  }
+	.workDate {
+		display: none;
+	}
 }
