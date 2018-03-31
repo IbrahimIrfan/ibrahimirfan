@@ -391,7 +391,7 @@ body {
 	transition:1s linear all;
 	opacity:0;
 }
-.loader-wrapper.ng-enter.ng-leave-active {
+.loader-wrapper.ng-enter.ng-enter-active {
 	opacity:1;
 }
 
