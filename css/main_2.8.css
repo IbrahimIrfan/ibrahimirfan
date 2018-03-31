@@ -387,11 +387,11 @@ body {
 	margin: 0
 }
 
-.loader-wrapper.ng-leave {
+.loader.ng-leave {
 	transition:1s linear all;
 	opacity:1;
 }
-.loader-wrapper.ng-leave.ng-leave-active {
+.loader.ng-leave.ng-leave-active {
 	opacity:0;
 }
 
