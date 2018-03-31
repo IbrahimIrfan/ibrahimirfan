@@ -387,7 +387,7 @@ body {
 	margin: 0
 }
 
-.loader-wrapper.ng-hide {
+.ng-hide {
 	transition:1s linear all;
 	opacity:0;
 }
