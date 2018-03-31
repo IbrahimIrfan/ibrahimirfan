@@ -2,11 +2,12 @@ particlesJS.load('particles-js', "js/particles.json");
 
 var app = angular.module("portfolio", ["ngAnimate", "duScroll"]);
 
-angular.element(function () {
-    console.log('page loading completed');
-});
-
 app.controller("projects", function($scope) {
+	console.log('controller loaded');
+	angular.element(function () {
+		console.log('page loading completed');
+	});
+
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
 		$scope.currentProject = $scope.projects[id];
