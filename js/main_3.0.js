@@ -16,7 +16,6 @@ $(window).on("load", function() {
         })
     }
 
-    $(".loader-wrapper").fadeOut("slow");
     a();
     $(document).scroll(function() {
         a()

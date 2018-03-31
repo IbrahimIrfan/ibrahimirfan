@@ -387,6 +387,14 @@ body {
 	margin: 0
 }
 
+.loader-wrapper.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.loader-wrapper.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
 .loader {
 	top: calc(50% - 32px);
 	left: calc(50% - 32px);
