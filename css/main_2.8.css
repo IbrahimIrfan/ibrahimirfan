@@ -387,14 +387,13 @@ body {
 	margin: 0
 }
 
-.loader-wrapper.animate-leave {
-	-webkit-transition: 1s linear all; /* Chrome */
-	transition: 1s linear all;
-	opacity: 1;
+.loader-wrapper.ng-hide {
+  opacity: 0;
 }
 
-.loader-wrapper.animate-leave.animate-leave-active {
-	opacity: 0;
+.loader-wrapper.ng-hide-add,
+.loader-wrapper.ng-hide-remove {
+  transition: all linear 0.5s;
 }
 
 .loader {
