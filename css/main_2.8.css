@@ -387,13 +387,13 @@ body {
 	margin: 0
 }
 
-.animate-leave {
+.loader-wrapper.animate-leave {
 	-webkit-transition: 1s linear all; /* Chrome */
 	transition: 1s linear all;
 	opacity: 1;
 }
 
-.animate-leave.animate-leave-active {
+.loader-wrapper.animate-leave.animate-leave-active {
 	opacity: 0;
 }
 
