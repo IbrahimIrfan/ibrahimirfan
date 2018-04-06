@@ -4,10 +4,6 @@ var app = angular.module("portfolio", ['duScroll', 'ngAnimate']);
 
 app.controller("projects", function($scope, $animate) {
 	$scope.loading = false;
-	document.addEventListener("DOMContentLoaded", function(event) {
-	console.log("hi");
-	$scope.loading = true;
-});
 
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
