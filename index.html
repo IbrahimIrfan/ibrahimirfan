@@ -81,15 +81,15 @@
     </script>
 </head>
 
-<body ng-app="portfolio" ng-controller="projects">
-    <div ng-hide="loading" class="loader-wrapper">
+<body ng-controller="projects">
+    <div ng-app="ngAnimate" ng-hide="loading" class="loader-wrapper">
         <div class="loader">
             <div class="inner one"></div>
             <div class="inner two"></div>
             <div class="inner three"></div>
         </div>
     </div>
-    <div class="everything-wrapper">
+    <div ng-app="portfolio" class="everything-wrapper">
         <div class="remodal" data-remodal-id="modal">
             <center><button data-remodal-action="close" class="remodal-close"></button>
 

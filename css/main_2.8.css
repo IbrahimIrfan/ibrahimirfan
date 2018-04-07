@@ -384,16 +384,13 @@ body {
 	z-index: 10000;
 	position: fixed;
 	background-color: #000;
-	margin: 0
+	margin: 0;
+	opacity: 1;
+  	transition: all linear 1s;
 }
 
-.loader-wrapper.ng-hide {
+.ng-hide {
   opacity: 0;
-}
-
-.loader-wrapper.ng-hide-add,
-.loader-wrapper.ng-hide-remove {
-  transition: all linear 0.5s;
 }
 
 .loader {
