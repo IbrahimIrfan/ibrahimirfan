@@ -1,5 +1,4 @@
 particlesJS.load('particles-js', "js/particles.json");
-sr.reveal(".fadeIn", { container: 'body' });
 
 var app = angular.module("portfolio", ['duScroll', 'ngAnimate']);
 
@@ -7,6 +6,7 @@ app.controller("projects", function($scope) {
 	// handle the loading screen fade
 	$scope.loading = false;
 	angular.element(function(){
+		sr.reveal(".fadeIn", { container: 'body', distance: '30px' });
 		$scope.$apply(function(){
 			$scope.loading = true;
 		});
