@@ -5,7 +5,7 @@ var app = angular.module("portfolio", ['duScroll', 'ngAnimate']);
 app.controller("projects", function($scope) {
 	$scope.loading = false;
 	angular.element(function(){
-		$scope.apply(function(){
+		$scope.$apply(function(){
 			$scope.loading = true;
 		});
 	});
