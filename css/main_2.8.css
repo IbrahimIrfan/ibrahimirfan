@@ -386,7 +386,7 @@ body {
 	background-color: #000;
 	margin: 0;
 	opacity: 1;
-  	transition: all linear 1s;
+  	transition: all linear 0.75s;
 }
 
 .ng-hide {

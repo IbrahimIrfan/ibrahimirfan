@@ -3,6 +3,7 @@ particlesJS.load('particles-js', "js/particles.json");
 var app = angular.module("portfolio", ['duScroll', 'ngAnimate']);
 
 app.controller("projects", function($scope) {
+	// handle the loading screen fade
 	$scope.loading = false;
 	angular.element(function(){
 		$scope.$apply(function(){
@@ -12,9 +13,11 @@ app.controller("projects", function($scope) {
 
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
-		$scope.currentProject = $scope.projects[id];
-		document.location.href = "#modal";
-		window.history.pushState("index", "Project", "/?project=" + id + "#modal");
+		$scope.$apply(function(){
+			$scope.currentProject = $scope.projects[id];
+			document.location.href = "#modal";
+			window.history.pushState("index", "Project", "/?project=" + id + "#modal");
+		});
 	}
 
 	$scope.getParameterByName = function (name, url) {
