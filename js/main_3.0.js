@@ -16,8 +16,8 @@ $(window).on("load", function() {
         })
     }
 
-	    a();
-    $(document).scroll(function() {
-        a()
-    })
+		//a();
+    //$(document).scroll(function() {
+        //a()
+    //})
 });
