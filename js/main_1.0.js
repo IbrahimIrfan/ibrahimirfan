@@ -1,6 +1,5 @@
 particlesJS.load('particles-js', "js/particles.json");
-window.sr = ScrollReveal();
-sr.reveal(".fadeIn");
+sr.reveal(".fadeIn", { container: 'body' });
 
 var app = angular.module("portfolio", ['duScroll', 'ngAnimate']);
 
