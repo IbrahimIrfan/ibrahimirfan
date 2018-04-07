@@ -17,12 +17,12 @@ app.controller("projects", function($scope) {
 		return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
 	}
 
-	$scope.fades = angular.element('.fadeIn');
-	angular.forEach(fades, function(el){
-		if ($scope.checkVisible(angular.element(el))){
-			sr.reveal(".fadeIn", { container: 'body', distance: '30px' });
-		}
-	})
+	//$scope.fades = angular.element('.fadeIn');
+	//angular.forEach(fades, function(el){
+		//if ($scope.checkVisible(angular.element(el))){
+			//sr.reveal(".fadeIn", { container: 'body', distance: '30px' });
+		//}
+	//})
 
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
