@@ -13,11 +13,9 @@ app.controller("projects", function($scope) {
 
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
-		$scope.$apply(function(){
-			$scope.currentProject = $scope.projects[id];
-			document.location.href = "#modal";
-			window.history.pushState("index", "Project", "/?project=" + id + "#modal");
-		});
+		$scope.currentProject = $scope.projects[id];
+		document.location.href = "#modal";
+		window.history.pushState("index", "Project", "/?project=" + id + "#modal");
 	}
 
 	$scope.getParameterByName = function (name, url) {
