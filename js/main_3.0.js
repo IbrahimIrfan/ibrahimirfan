@@ -1,5 +1,5 @@
 $(window).on("load", function() {
-	// todo: fadeIn elements and fadeOut the loader
+	// todo: fadeIn elements 
     function e(e) {
         e.css("margin-top", "+=30px");
 		e.animate({
@@ -16,7 +16,7 @@ $(window).on("load", function() {
         })
     }
 
-    a();
+	    a();
     $(document).scroll(function() {
         a()
     })
