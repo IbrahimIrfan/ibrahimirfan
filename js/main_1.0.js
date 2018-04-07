@@ -6,11 +6,23 @@ app.controller("projects", function($scope) {
 	// handle the loading screen fade
 	$scope.loading = false;
 	angular.element(function(){
-		sr.reveal(".fadeIn", { container: 'body', distance: '30px' });
 		$scope.$apply(function(){
 			$scope.loading = true;
 		});
 	});
+
+	$scope.checkVisible = function (elm) {
+		var rect = elm.getBoundingClientRect();
+		var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+		return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+	}
+
+	$scope.fades = angular.element('.fadeIn');
+	angular.forEach(fades, function(el){
+		if ($scope.checkVisible(angular.element(el))){
+			sr.reveal(".fadeIn", { container: 'body', distance: '30px' });
+		}
+	})
 
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
