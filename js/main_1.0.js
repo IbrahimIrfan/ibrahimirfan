@@ -11,6 +11,17 @@ app.controller("main", function($scope) {
 		});
 	});
 
+	$scope.scrollTo = function() {
+		console.log("Called");
+		scroller = document.getElementById("scroll");
+		if (scroller.getBoundingClientRect().top > 0){
+			setTimeout(function() {
+				window.scrollTo(0,window.scrollY+25);
+				$scope.scrollTo();
+			}, 15);
+		}
+	}
+
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
 		document.location.href = "projects.html?p=" + id;

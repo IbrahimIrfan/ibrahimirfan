@@ -92,7 +92,7 @@ drift.load('bhu384ue373c');
 				</center>
 			</div>
 			<div id="downArrowWrapper">
-				<center> <img ng-init="currentArrow=0" du-smooth-scroll="scroll" ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
+				<center> <img ng-init="currentArrow=0" ng-click="scrollTo()" ng-mouseover="currentArrow = 1" ng-mouseleave="currentArrow = 0" id="downArrow" src="{{arrows[currentArrow]}}"></center>
 			</div>
 		</div>
 		<div class="content remodal-bg" id="scroll">
