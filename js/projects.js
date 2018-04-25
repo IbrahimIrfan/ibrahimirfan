@@ -9,7 +9,7 @@ var projects = [{
 }, {
 	id: 1,
 	title: "DriveBud",
-	description: "<a target='_blank' href='https://github.com/IbrahimIrfan/drivebudapp'>GitHub</a><br><br>For my group's SHAD Valley project, we decided to address the yearly theme of reducing environmental footprint with DriveBud.<br><br>Partnering with my employer Geotab, a large fleet management telematics company, we used their GO7 Device to track vehicle data. This device would plug into a customers car and send statistics to the DriveBud app. The app presents the data to the user in a fun, friendly way and makes eco-friendly driving appealing.<br><br>Our project team will be advancing to the National stage in October.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/ctLM8qvnsoc' frameborder='0' allowfullscreen></iframe>",
+	description: "<a target='_blank' href='https://github.com/IbrahimIrfan/drivebudapp'>GitHub</a><br><br>For my group's SHAD Valley project, we decided to address the yearly theme of reducing environmental footprint with DriveBud.<br><br>Partnering with my employer Geotab, a large fleet management telematics company, we used their GO7 Device to track vehicle data. This device would plug into a customers car and send statistics to the DriveBud app. The app presents the data to the user in a fun, friendly way and makes eco-friendly driving appealing.<br><br>Our project team will be advancing to the National stage in October.<br><br><iframe width='560' height='500' src='https://www.youtube.com/embed/ctLM8qvnsoc' frameborder='0' allowfullscreen></iframe>",
 	images: [],
 	order: 9,
 	thumbnail: "drive.png",
@@ -42,7 +42,7 @@ var projects = [{
 }, {
 	id: 5,
 	title: "Self-Aiming Cannon",
-	description: "<a target='_blank' href='https://github.com/edwinzhng/automatic-cannon'>GitHub</a><br><br>Self-aiming cannon that automatically calculates trajectories towards a target built using Python, Go, and a RaspberryPi. Recognizes a face with SkyBiometry API after taking a picture and aims towards it. Includes remote control with keyboard input through a socket connection.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/_aEoWWzmeTo?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
+	description: "<a target='_blank' href='https://github.com/edwinzhng/automatic-cannon'>GitHub</a><br><br>Self-aiming cannon that automatically calculates trajectories towards a target built using Python, Go, and a RaspberryPi. Recognizes a face with SkyBiometry API after taking a picture and aims towards it. Includes remote control with keyboard input through a socket connection.<br><br><iframe width='560' height='500' src='https://www.youtube.com/embed/_aEoWWzmeTo?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
 	images: ["cannon.jpg", "cannon2.jpg"],
 	order: 1,
 	thumbnail: "cannon.jpg",
@@ -51,7 +51,7 @@ var projects = [{
 	id: 6,
 	title: "Tragic Heroes iOS Game",
 	width: 640,
-	description: "For a creative project in my English class, I chose to create a game to explain the concept of tragic heroes. <br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/T9b6KoyhZhQ?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
+	description: "For a creative project in my English class, I chose to create a game to explain the concept of tragic heroes. <br><br><iframe width='560' height='500' src='https://www.youtube.com/embed/T9b6KoyhZhQ?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
 	images: [],
 	order: 11,
 	thumbnail: "tragic.jpg",
@@ -59,7 +59,7 @@ var projects = [{
 }, {
 	id: 7,
 	title: "Pinch Perfect",
-	description: "As a HackWestern 3 project, this instrument requires no physical contact to play. The LeapMotion tracks your hand movements and plays a note accordingly. Using your right hand, you control the frequency, while your left-hand controls volume.<br><br> To play, all you need to do is pinch your fingers on your right hand. The x-axis controls pitch modulation to produce a vibrato, so by shaking your right hand side to side, you can create a sound that mimics the human voice.<br><br> In game mode, you can follow the purple bar depicted on the screen to play some of your favorite songs, whereas in free play, you are free to create and practice. You can also create and upload your own songs for others to play and enjoy.<br><iframe width='560' height='315' src='https://www.youtube.com/embed/1CgmxwbYQOI?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
+	description: "As a HackWestern 3 project, this instrument requires no physical contact to play. The LeapMotion tracks your hand movements and plays a note accordingly. Using your right hand, you control the frequency, while your left-hand controls volume.<br><br> To play, all you need to do is pinch your fingers on your right hand. The x-axis controls pitch modulation to produce a vibrato, so by shaking your right hand side to side, you can create a sound that mimics the human voice.<br><br> In game mode, you can follow the purple bar depicted on the screen to play some of your favorite songs, whereas in free play, you are free to create and practice. You can also create and upload your own songs for others to play and enjoy.<br><br><iframe width='560' height='500' src='https://www.youtube.com/embed/1CgmxwbYQOI?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>",
 	images: ["pinch.jpg", "pinch2.jpg", "pinch3.jpg", "pinch4.jpg"],
 	order: 10,
 	thumbnail: "pinchUpdate.jpg",
@@ -83,7 +83,7 @@ var projects = [{
 }, {
 	id: 10,
 	title: "Geotab HR Automation System",
-	description: "For the summer of 2017, I was a Jr. Software Developer Intern for the HR Department at Geotab. My job was to increase the efficiency of Geotab's HR Department by automating many tedious, time-consuming tasks. I created a collection of Docs, Forms, and Spreadsheets using Google Apps Script to automate many of the tasks, summarized below. <br><br>•  Job Applications<br>•  Interviews<br>•  Handling Employee Files<br>•  Scheduling Meetings<br>•  Emails<br>•  Internal Reporting<br>•  Resume Parsing<br>•  Workshop Registration<br>•  Performance Reviews<br>•  File Revision History",
+	description: "For the summer of 2017, I was a Jr. Software Developer Intern for the HR Department at Geotab. My job was to increase the efficiency of Geotab's HR Department by automating many tedious, time-consuming tasks. I created a collection of Docs, Forms, and Spreadsheets using Google Apps Script to automate many of the tasks, summarized below. <br><br>&middot; Job Applications<br>&middot; Interviews<br>&middot; Handling Employee Files<br>&middot;  Scheduling Meetings<br>&middot; Emails<br>&middot; Internal Reporting<br>&middot; Resume Parsing<br>&middot; Workshop Registration<br>&middot; Performance Reviews<br>&middot; File Revision History",
 	images: ["geotab.png"],
 	order: 6,
 	thumbnail: "geotab.png",

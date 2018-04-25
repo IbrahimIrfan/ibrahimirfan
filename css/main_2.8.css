@@ -9,7 +9,7 @@
 	cursor: pointer
 }
 
-.content,
+.content, .projectContent,
 .projectType {
 	padding-left: 10%!important
 }
@@ -27,8 +27,21 @@ body {
 
 hr {
 	margin-top: 20px!important;
-	margin-bottom: 10px!important;
-  border-color: transparent !important;
+    margin-bottom: 10px!important;
+    border-color: transparent !important;
+}
+
+.hr {
+	margin-top: 80px;
+	margin-bottom: 80px;
+	height: 2px;
+	background-color: black;
+	width: 100%: 
+}
+
+#back {
+	padding-left: 50px;
+	padding-top: 30px;
 }
 
 body,
@@ -42,7 +55,7 @@ html {
 	background-size: cover;
 	background-position: center;
 	position: relative;
-  background-color: #ffffff;
+	background-color: #ffffff;
 }
 
 .fluid-ratio-resize:after {
@@ -52,9 +65,9 @@ html {
 }
 
 .headerContent {
-  -webkit-box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
 	width: 100%;
 	background-color: rgba(0, 0, 0, .80);
 	position: absolute!important;
@@ -110,6 +123,11 @@ box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
 	padding-top: 70px!important
 }
 
+.projectContent {
+	padding-right: 10%!important;
+	padding-top: 30px!important
+}
+
 .margined {
 	margin-left: 10%!important;
 	margin-right: 10%!important
@@ -145,12 +163,12 @@ box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
 	font-size: 20px;
 	margin-bottom: 10px;
 	font-family: 'Roboto:100', sans-serif!important;
-  color: #276bf1;
+	color: #276bf1;
 }
 
 .noteLink{
-  color: #276bf1;
-  text-decoration:none;
+	color: #276bf1;
+	text-decoration:none;
 }
 
 .workDate {
@@ -224,10 +242,10 @@ box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
 }
 
 .projectImg:hover {
-     animation-name: fadeShadow;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-         -webkit-animation-fill-mode: forwards;
+	animation-name: fadeShadow;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
 }
 
 .projectDesc {
@@ -259,7 +277,7 @@ box-shadow: 0px 0px 32px 6px rgba(0,0,0,0.75);
 	animation-fill-mode: forwards
 }
 
-.btn:hover,
+.btn:hover, #back:hover,
 .social:hover {
 	cursor: pointer!important
 }
@@ -375,7 +393,8 @@ body {
 }
 
 .langs {
-	font-size: 25px
+	font-size: 35px;
+	margin-top:20px;
 }
 
 .loader-wrapper {
@@ -386,11 +405,11 @@ body {
 	background-color: #000;
 	margin: 0;
 	opacity: 1;
-  	transition: all linear 0.75s;
+	transition: all linear 0.75s;
 }
 
 .ng-hide {
-  opacity: 0;
+	opacity: 0;
 }
 
 .loader {
