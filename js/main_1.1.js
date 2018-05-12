@@ -12,7 +12,6 @@ app.controller("main", function($scope) {
 	});
 
 	$scope.scrollTo = function() {
-		console.log("Called");
 		scroller = document.getElementById("scroll");
 		if (scroller.getBoundingClientRect().top > 0){
 			setTimeout(function() {
@@ -25,6 +24,21 @@ app.controller("main", function($scope) {
 	$scope.projects = projects;
 	$scope.projectClicked = function(id){
 		document.location.href = "projects.html?p=" + id;
+	}
+
+	$scope.getParameterByName = function (name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	$scope.queryNumShort = $scope.getParameterByName("p");
+	if ($scope.queryNumShort != null) {
+		projectClicked($scope.queryNumShort);
 	}
 
 	$scope.arrows = ["img/icons/whiteArrow.png", "img/icons/greenArrow.png"]
