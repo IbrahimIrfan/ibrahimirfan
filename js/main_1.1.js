@@ -37,7 +37,10 @@ app.controller("main", function($scope) {
 	}
 
 	$scope.queryNumShort = $scope.getParameterByName("p");
-	if ($scope.queryNumShort != null) {
+	$scope.queryNum = $scope.getParameterByName("project");
+	if ($scope.queryNum != null) {
+		$scope.projectClicked($scope.queryNum);
+	} else if ($scope.queryNumShort != null) {
 		$scope.projectClicked($scope.queryNumShort);
 	}
 
