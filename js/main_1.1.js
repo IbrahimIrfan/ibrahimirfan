@@ -38,7 +38,7 @@ app.controller("main", function($scope) {
 
 	$scope.queryNumShort = $scope.getParameterByName("p");
 	if ($scope.queryNumShort != null) {
-		projectClicked($scope.queryNumShort);
+		$scope.projectClicked($scope.queryNumShort);
 	}
 
 	$scope.arrows = ["img/icons/whiteArrow.png", "img/icons/greenArrow.png"]
