@@ -77,7 +77,7 @@ var projects = [{
 	title: "2 Player Chess",
 	description: "<a target='_blank' href='https://github.com/IbrahimIrfan/chess'>GitHub</a><br><br>My final project for Grade 11 Computer Science - a two-player Chess game built with Turing. Still one of the most difficult projects I have taken on.",
 	images: ["chess.jpg", "chess2.jpg", "chess3.jpg", "chess4.jpg"],
-	order: 5,
+	order: 6,
 	thumbnail: "chess.jpg",
 	languages: ["Turing"]
 }, {
@@ -85,7 +85,7 @@ var projects = [{
 	title: "Smart Mirror",
 	description: "Created a smart mirror using a rapsberry pi and popular open-source library <a href='https://github.com/MichMich/MagicMirror' target='_blank'>MagicMirror</a><br>Developed and published a <a href='https://github.com/IbrahimIrfan/MMM-OakBus' target='_blank'>module</a> for the mirror to track and display Oakville bus transit times in real time.",
 	images: ["mirror.jpg"],
-	order: 6,
+	order: 5,
 	thumbnail: "mirror.jpg",
 	languages: ["Raspberry Pi", "Node.js"]
 }, {
