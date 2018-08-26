@@ -51,7 +51,7 @@ var projects = [{
 	id: 6,
 	title: "Palm-Vein Authentication",
 	description: "A low cost palm-vein authentication system using a RaspberryPi, NoIR camera, and infrared LEDs. Achieved over 93% accuracy with a basic machine learning model. See the full project overview <a target='_blank' href='https://www.hackster.io/1ibrahimirfan/low-cost-palm-vein-authentication-system-74e917'>here.</a>",
-	images: ["palm.png", "palm2.jpg", "palm3.png", "palm4.png", "palm5.jpg"],
+	images: ["palm.png", "palm2.jpg", "palm3.png", "palm4.png"],
 	order: 1,
 	thumbnail: "palm.png",
 	languages: ["RaspberryPi", "Python", "OpenCV", "TensorFlow"]
