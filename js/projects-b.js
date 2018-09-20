@@ -50,7 +50,7 @@ var projects = [{
 }, {
 	id: 6,
 	title: "Palm-Vein Authentication",
-	description: "A low cost palm-vein authentication system using a RaspberryPi, NoIR camera, and infrared LEDs. Achieved over 93% accuracy with a basic machine learning model. See the full project overview <a target='_blank' href='https://www.hackster.io/1ibrahimirfan/low-cost-palm-vein-authentication-system-74e917'>here.</a>",
+	description: "<a target='_blank' href='https://devpost.com/software/invein'>Hack The North Winner 2018</a> - A low cost palm-vein authentication system using a RaspberryPi, NoIR camera, and infrared LEDs. Achieved over 93% accuracy with a basic machine learning model. See the full project overview <a target='_blank' href='https://www.hackster.io/1ibrahimirfan/low-cost-palm-vein-authentication-system-74e917'>here.</a>",
 	images: ["palm.png", "palm2.jpg", "palm3.png", "palm4.png"],
 	order: 1,
 	thumbnail: "palm.png",
