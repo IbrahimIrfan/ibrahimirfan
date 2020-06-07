@@ -1,0 +1,27 @@
+.img-header {
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    margin-top: 50px;
+}
+
+.profile-img {
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-top: -40px;
+    margin-left: 20px;
+}
+
+.blog-title {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.blog-date {
+    color: grey;
+    margin-top: 10px;
+}
