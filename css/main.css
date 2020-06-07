@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 700px;
+    width: 90%;
+    margin: auto;
+}
+
+#profile-img {
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.header {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.intro {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.company-icon {
+    height: 18px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.stripe {
+    margin-right: 5px;
+}
+
+.section {
+    margin-top: 70px;
+}
+
+.subheading {
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.blog-preview {
+    padding: 20px;
+}
+.blog-img {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.blog-title {
+    font-weight: 600;
+    font-size: 25px;
+}
