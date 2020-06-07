@@ -48,9 +48,6 @@ body {
     margin-bottom: 15px;
 }
 
-.blog-preview {
-    padding: 20px;
-}
 .blog-img {
     width: 250px;
     margin-right: 20px;
@@ -59,4 +56,17 @@ body {
 .blog-title {
     font-weight: 600;
     font-size: 25px;
+    margin-bottom: 10px;
 }
+
+.blog-details {
+    padding: 20px;
+}
+
+.blog-subtitle {
+    margin-top: 15px;
+}
+
+.highlight {
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgb(174, 206, 255) 50%);
+  }
