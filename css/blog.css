@@ -93,3 +93,11 @@
 .very-big {
     font-size: 25px;
 }
+
+blockquote
+{
+  font-style: normal;
+  margin-left: 32px;
+  border-left: 4px solid #CCC;
+  padding-left: 8px;
+}
