@@ -76,3 +76,16 @@
     padding: 30px;
     background-color: rgb(235, 235, 235);
 }
+
+.code-section {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.code-inline {
+    padding: 3px;
+    background-color: #f9f3f5;
+    color: #c7254e;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}

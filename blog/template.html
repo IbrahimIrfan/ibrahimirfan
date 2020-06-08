@@ -154,9 +154,99 @@
         <div class="blog-section">
             Now, let's take an image:
         </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/palm1.jpg" alt="First Palm Image">
+        </div>
+
+        <div class="blog-section">
+            Cool! A somewhat distinguishable vein pattern. Let's set up auto-cropping, as we're only concerned with the
+            palm. This is the command I used to produce a 600x600 image (you'll want it to be square).
+        </div>
+
+        <pre>
+            <code class="code-section">
+  raspistill -vf -w 600 -h 600 -roi 0.46,0.34,0.25,0.25 -o pic.jpg
+            </code>
+        </pre>
+
+        <div class="blog-section">
+            Those 4 coordinates, <span class="code-inline">(0.46, 0.34, 0.25, 0.25)</span>, define the <a
+                target="_blank"
+                href="https://picamera.readthedocs.io/en/release-1.10/api_camera.html#picamera.camera.PiCamera.zoom">ROI</a>
+            (region of interest). Yours will vary based on
+            the positioning of the camera - it takes some trial and error (this is why you don't want your setup to move
+            around).
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/palm2.png" alt="Post-crop image">
+            <div class="caption">Post-crop image.</div>
+        </div>
+
+        <div class="blog-section">
+            Now we have this isolated image of our palm. Next, we need to perform some image processing before we can
+            actually make use of it.
+        </div>
+
+        <div class="subheading">
+            Step 2: Image Processing
+        </div>
+
+        <div class="blog-section">
+            First, install <a
+                href="https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/"
+                target="_blank">OpenCV</a> on your Pi. Then, let's load the image and convert it to
+            grayscale.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  # Load the 600x600 image and convert to grayscale
+  img = cv2.imread("pic.jpg") 
+  gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            </code>
+        </pre>
+
+        <div class="blog-section">
+            Let's start by reducing some of the noise. Luckily, OpenCV has a function for that:
+        </div>
+        <pre>
+            <code class="code-section">
+  noiseReduced = cv2.fastNlMeansDenoising(gray) 
+            </code>
+        </pre>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/palm3.png" alt="Post-crop image">
+            <div class="caption">After image denoising.</div>
+        </div>
+
+        <div class="blog-section">
+            Much smoother. Now, we need to increase the contrast to really make the veins stand out. The method I used
+            was <a href="https://www.math.uci.edu/icamp/courses/math77c/demos/hist_eq.pdf" target="_blank">histogram
+                equalization</a>. This distributes the intensities of the pixels in the image, "equalizing" the
+            histogram. We then invert the image, since many OpenCV functions assume the background is black and
+            foreground is white.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  # equalize hist
+  kernel = np.ones((7,7),np.uint8)
+  img = cv2.morphologyEx(noiseReduced, cv2.MORPH_OPEN, kernel)
+  img_yuv = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
+  img_yuv[:,:,0] = cv2.equalizeHist(img_yuv[:,:,0])
+  img_output = cv2.cvtColor(img_yuv, cv2.COLOR_YUV2BGR)
+            </code>
+        </pre>
+
     </div>
 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
