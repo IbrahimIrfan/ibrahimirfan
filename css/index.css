@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+}
+
+.highlight {
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgb(207, 226, 254) 50%);
+}
+
+.nav {
+    padding-top: 20px;
+}
+
+.footer {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: grey;
+}

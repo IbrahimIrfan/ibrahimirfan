@@ -1,0 +1,108 @@
+.img-header {
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    margin-top: 30px;
+}
+
+.profile-img {
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-top: -40px;
+    margin-left: 20px;
+}
+
+.blog-title {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.blog-date {
+    color: grey;
+    margin-top: 10px;
+}
+
+.blog-body {
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.blog-section {
+    margin-bottom: 40px;
+}
+
+.list {
+    margin-top: 15px;
+}
+
+.subheading {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.img-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog-img-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.caption {
+    color: grey;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#shoebox-img {
+    width: auto;
+    height: 500px;
+}
+
+.strong-big {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.blog-section-grey {
+    padding: 30px;
+    background-color: rgb(235, 235, 235);
+}
+
+.code-section {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.code-inline {
+    padding: 3px;
+    background-color: #f9f3f5;
+    color: #c7254e;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.very-big {
+    font-size: 25px;
+}
+
+blockquote {
+  font-style: normal;
+  margin-left: 32px;
+  border-left: 4px solid #CCC;
+  padding-left: 8px;
+}
+
+.signature {
+    margin-top: 20px;
+    color: gray;
+    margin-bottom: 70px;
+}

@@ -1,0 +1,81 @@
+#profile-img {
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.header {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.intro {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.company-icon {
+    height: 18px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.stripe {
+    margin-right: 5px;
+}
+
+.section {
+    margin-top: 70px;
+}
+
+.first-section {
+    margin-top: 50px;
+}
+
+.subheading {
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.blog-preview {
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.blog-img {
+    width: 100%;
+}
+
+.blog-title {
+    font-weight: 600;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-subtitle {
+    margin-top: 15px;
+}
+
+.see-all {
+    width: 100%;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.fa-file-pdf {
+    margin-right: 5px;
+}
+
+.red {
+    color: red;
+}
