@@ -127,7 +127,7 @@
 
 
         <div class="blog-section">
-            When I re-made this project using an actual door, I used a simple wooden box with a circle cut out for the
+            When I remade this project using an actual door, I used a simple wooden box with a circle cut out for the
             palm.
         </div>
 
@@ -232,7 +232,7 @@
 
         <pre>
             <code class="code-section">
-  # equalize hist
+  # Histogram Equalization
   kernel = np.ones((7,7),np.uint8)
   img = cv2.morphologyEx(noiseReduced, cv2.MORPH_OPEN, kernel)
   img_yuv = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
@@ -324,7 +324,8 @@
 
         <div class="subheading">Step 3: Authentication</div>
         <div class="blog-section">
-            To be able to authenticate, you'll need TensorFlow installed. We'll be using a basic classification method.
+            To be able to authenticate, you'll need <a href="https://www.tensorflow.org/install/install_raspbian"
+                target="_blank">TensorFlow</a> installed. We'll be using a basic classification method.
         </div>
         <div class="blog-section">
             I didn't have access to any public palm-vein data upon completing this project, so my variation was to
@@ -343,7 +344,7 @@
         </div>
 
         <div class="blog-section">
-            Let's throw these images in a model. <span class="code-inline">train_images</span> will be an np array of
+            Let's throw these images in a model. <span class="code-inline">train_images</span> will be a numpy array of
             images represented as 2d pixel
             arrays. <span class="code-inline">train_labels</span> will be the index of the correct image classification.
             The i-th image in <span class="code-inline">train_images</span>
@@ -417,9 +418,19 @@
             LEDs. Regardless, I was satisfied to even extract the vein data, let alone get a high accuracy!
         </div>
 
+        <div class="subheading">Final Thoughts</div>
         <div class="blog-section">
-            Conclusion here?
+            This project was inexpensive, unique, and a lot of fun! The remake of this project, using an actual door,
+            won first place at Hack the North 2018.
         </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/htn.jpg" alt="Hack The North winners">
+            <div class="caption">Hack the North 2018</div>
+        </div>
+        <div class="blog-section">
+            I've gotten plenty of emails from others who have recreated this project themselves - get in touch if you do too! 😄
+            </div>
     </div>
 
 
