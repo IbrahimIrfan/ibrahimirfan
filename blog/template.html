@@ -2,14 +2,14 @@
 <html>
 
 <head>
-	<title>Ibrahim Irfan</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Software Developer - Waterloo Software Engineering 2022" />
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="../css/index.css">
-	<link rel="stylesheet" href="../css/blog.css">
+    <title>Ibrahim Irfan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Software Developer - Waterloo Software Engineering 2022" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/blog.css">
 </head>
 
 <body>
@@ -21,18 +21,151 @@
     <div class="blog-title">
         How to Build a Palm Vein Authentication System
     </div>
-    <div class="blog-date">Aug 24, 2018</div>
+    <div class="blog-date">June 7, 2020</div>
+
+    <div class="blog-body">
+        <div class="blog-section">
+            <i>Palm vein authentication</i> is the process of using an individual's vein pattern to
+            identify who they are.
+            Despite not being very well known, it has the potential to become one of the best forms of biometric
+            authentication.
+            It's:
+            <ul class="list">
+                <li>
+                    <strong>Contactless.</strong> A big plus for public settings like banks and hospitals.
+                </li>
+                <li>
+                    <strong>Reliable.</strong> There are millions of identifiable points and regions in a vein pattern.
+                </li>
+                <li>
+                    <strong>Difficult to impersonate.</strong> Even identical twins have different vein patterns.
+                </li>
+            </ul>
+            However, one of the main drawbacks right now is the cost
+            (sensors are currently selling for
+            <a href="https://www.fulcrumbiometrics.com/fujitsu-palmsecure-vein-vascular-biometric-gu-p/102420.htm"
+                target="_blank">$400+</a>).
+            Here's how to make a simple but accurate one for under $90 using a Raspberry Pi, OpenCV, and TensorFlow.
+        </div>
+
+        <div class="subheading">
+            What You'll Need
+        </div>
+        <div class="blog-section">
+            <ul class="list">
+                <li>
+                    <a href="https://amzn.to/30kmUJg" target="_blank">
+                        Raspberry Pi
+                    </a>
+                </li>
+                <li>
+                    <a href="https://amzn.to/2A9XC5O" target="_blank">
+                        NoIR Camera Module
+                    </a>
+                </li>
+                <li>
+                    <a href="https://amzn.to/2YdzNCa" target="_blank">
+                        A breadboard
+                    </a>
+                </li>
+                <li>
+                    <a href="https://amzn.to/2Yee8ts" target="_blank">
+                        100 ohm resistor
+                    </a>
+                </li>
+                <li>
+                    <a href="https://amzn.to/3dJBSfB" target="_blank">
+                        Infrared LEDs
+                    </a>
+                </li>
+                <li> <a href="https://amzn.to/3f1NQSg" target="_blank"> Jumper wires </a> </li>
+                <li> A shoe box 😀 </li>
+            </ul>
+        </div>
+
+        <div class="subheading">
+            Step 1: Getting a vein image
+        </div>
+
+        <div class="blog-section">
+            The first step is getting an image to work with - but how can we get an accurate picture of veins?
+            Turns out, the hemoglobin in our blood absorbs infrared light (see below). Under the right conditions,
+            if we take some infrared LEDs and position them under one's hand, we should be able to get a vein image!
+            The naked eye won't see anything since infrared lies
+            beyong the visual spectrum, which is why we'll use the RaspberryPi NoIR camera module.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/hemoglobin.png" alt="Hemoglobin Graph">
+            <div class="caption">Source: <a href="https://en.wikipedia.org/wiki/Pulse_oximetry">Pule Oximetry</a></div>
+        </div>
+
+        <div class="blog-section">
+            Now, we need a setup where we can get a consistent image every time. Some variables we
+            should control:
+
+            <ul class="list">
+                <li>
+                    Lighting (we want the IR light to be relatively unobstructed)
+                </li>
+                <li>
+                    Height of palm above camera
+                </li>
+                <li>
+                    Position/orientation of palm in the image
+                </li>
+            </ul>
+
+            While prototyping, an ordinary shoebox with a palm-sized hole cut out above the camera worked perfectly for
+            me.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/box.jpg" alt="Shoebox" id="shoebox-img">
+            <div class="caption">Just a regular shoebox.</div>
+        </div>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+        <div class="blog-section">
+            When I re-made this project using an actual door, I used a simple wooden box with a circle cut out for the
+            palm.
+        </div>
+
+        <div class="blog-section">
+            The circuitry is very simple - we just need to power the IR LEDs. I used 5 LEDs connected in series with a
+            100 ohm resistor (you may need a different resistance depending on your LEDs) and a 9V battery. The
+            RaspberryPi is on top of the breadboard, with the camera resting on the battery facing up.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/circuit.jpg" alt="Circuit">
+            <div class="caption">The circuit.</div>
+        </div>
+
+        <div class="blog-section blog-section-grey">
+            <div class="strong-big">
+                Make sure you have a sturdy setup.
+            </div>
+
+            I taped down the breadboard and loose parts to the bottom of the
+            shoe box, but I suggest using something more secure, like zip ties.
+        </div>
+
+        <div class="blog-section">
+            Now, let's take an image:
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
