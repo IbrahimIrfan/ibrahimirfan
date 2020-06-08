@@ -13,3 +13,9 @@ body {
 .nav {
     padding-top: 20px;
 }
+
+.footer {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: grey;
+}
