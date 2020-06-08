@@ -10,7 +10,7 @@
 .profile-img {
     width: 80px;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 2px solid white;
     margin-top: -40px;
     margin-left: 20px;
 }
@@ -88,4 +88,8 @@
     color: #c7254e;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.very-big {
+    font-size: 25px;
 }
