@@ -122,7 +122,7 @@
 
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/box.jpg" alt="Shoebox" id="shoebox-img">
-            <div class="caption">Just a regular shoebox.</div>
+            <div class="caption">Just a regular shoebox</div>
         </div>
 
 
@@ -139,7 +139,7 @@
 
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/circuit.jpg" alt="Circuit">
-            <div class="caption">The circuit.</div>
+            <div class="caption">The circuit</div>
         </div>
 
         <div class="blog-section blog-section-grey">
@@ -181,7 +181,7 @@
 
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/palm2.png" alt="Post-crop image">
-            <div class="caption">Post-crop image.</div>
+            <div class="caption">Post-crop image</div>
         </div>
 
         <div class="blog-section">
@@ -219,7 +219,7 @@
 
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/palm3.png" alt="Post-crop image">
-            <div class="caption">After image denoising.</div>
+            <div class="caption">After image denoising</div>
         </div>
 
         <div class="blog-section">
@@ -241,6 +241,185 @@
             </code>
         </pre>
 
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/palm4.png" alt="Post-equalization vein image">
+            <div class="caption">After histogram equalization and inversion</div>
+        </div>
+
+        <div class="blog-section">
+            That made quite a big difference. A lot of the "skin" is gone (now black), with the vein pattern being
+            largely white. It's still not quite ready yet - there's a lot of redundant data in this image.
+        </div>
+
+        <div class="blog-section">
+            <i>Erosion</i> is a technique used to strip away outer layers of data in images. For example, if we want to
+            "thin"
+            an image of the letter <span class="code-inline">j</span> using erosion:
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/j-comparision.jpeg" alt="Skeletonization example">
+            <div class="caption">Source: <a
+                    href="https://docs.opencv.org/2.4/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html"
+                    target="_blank">Erosion Dilation</a></div>
+        </div>
+
+        <div class="blog-section">
+            Similarly, we want to do this with the vein image. Let's "skeletonize" it, using repeated erosion.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  img = gray.copy()
+  skel = img.copy()
+  skel[:,:] = 0
+  kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (5,5))
+  while cv2.countNonZero(img) > 0:
+      eroded = cv2.morphologyEx(img, cv2.MORPH_ERODE, kernel)
+      temp = cv2.morphologyEx(eroded, cv2.MORPH_DILATE, kernel)
+      temp  = cv2.subtract(img, temp)
+      skel = cv2.bitwise_or(skel, temp)
+      img[:,:] = eroded[:,:]
+            </code>
+        </pre>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/skeleton.png" alt="Skeletonized vein image">
+            <div class="caption">After skeletonization (repeated erosion)</div>
+        </div>
+
+        <div class="blog-section">
+            Now we're talking! I applied a quick threshold to make the veins more visible. Every pixel which is 5 or
+            higher
+            (everything very dark gray or lighter) will become 255 (white).
+        </div>
+
+        <pre>
+            <code class="code-section">
+  ret, thr = cv2.threshold(skel, 5,255, cv2.THRESH_BINARY);
+    </code>
+</pre>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/final-palm.png" alt="Final palm image">
+            <div class="caption">The final result!</div>
+        </div>
+
+        <div class="blog-section">
+            To see how accurate this was, I overlayed the vein pattern over the original image to see if there was a
+            correlation.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/palm-overlay.jpeg" alt="Overlay">
+            <div class="caption">The result overlayed on the original image</div>
+        </div>
+
+        <div class="blog-section">
+            It's looking good! Not perfect, but it should be more than good enough for our purposes.
+        </div>
+        <div class="blog-section">
+            Now we know how to extract the vein pattern given an image of a palm. The next step is authentication.
+        </div>
+
+        <div class="subheading">Step 3: Authentication</div>
+        <div class="blog-section">
+            To be able to authenticate, you'll need TensorFlow installed. We'll be using a basic classification method.
+        </div>
+        <div class="blog-section">
+            I didn't have access to any public palm-vein data upon completing this project, so my variation was to
+            authenticate between multiple hands instead (which I could provide training data for myself). So, instead of
+            authenticating between my hand and any other random hand, the model will authenticate between multiple
+            pre-trained hands (I used my left and my right). The code is the same, just the training data varies.
+        </div>
+        <div class="blog-section">
+            To start, we need sets of training data. I took 40 total photos for my right and left palms (20 each), and
+            processed all of the images to get the vein patterns.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/training-data.jpeg" alt="Training data">
+            <div class="caption">Training data</div>
+        </div>
+
+        <div class="blog-section">
+            Let's throw these images in a model. <span class="code-inline">train_images</span> will be an np array of
+            images represented as 2d pixel
+            arrays. <span class="code-inline">train_labels</span> will be the index of the correct image classification.
+            The i-th image in <span class="code-inline">train_images</span>
+            will have classification <span class="code-inline">classes[train_labels[i]]</span>.
+        </div>
+
+        <div class="blog-section">
+            Finally, we normalize the images to be floats from 0 - 1 instead of 0 - 255.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  classes = ["left", "right"]
+  num_right_train = 20
+  num_left_train = 20
+  # 1 for right, 0 for left
+  train_labels = np.array([1]*num_right_train + [0]*num_left_train)
+  train_images = np.array([])
+  for i in range(num_right_train):
+     pic = np.array(Image.open("images/right_thr" + str(i) + ".jpg"))
+     train_images = np.vstack((train_images, np.array([pic])))
+  for i in range(num_left_train):
+     pic = np.array(Image.open("images/left_thr" + str(i) + ".jpg"))
+     train_images = np.vstack((train_images, np.array([pic])))
+  train_images = train_images / 255.0
+            </code>
+        </pre>
+
+        <div class="blog-section">
+            We're now ready to compile and train our model! We need the keras module from TensorFlow for this.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  # Source: https://www.tensorflow.org/tutorials/keras/basic_classification
+  model = keras.Sequential([
+     keras.layers.Flatten(input_shape=(600, 600)), # dimensions of the image
+     keras.layers.Dense(64, activation=tf.nn.relu),
+     keras.layers.Dense(2, activation=tf.nn.softmax)
+  ])
+  model.compile(optimizer=tf.train.AdamOptimizer(), 
+         loss='sparse_categorical_crossentropy',
+         metrics=['accuracy'])
+  model.fit(train_images, train_labels, epochs=5)
+            </code>
+        </pre>
+
+        <div class="blog-section">
+            Training took around 15 - 25 seconds for the 40 images. Now for the moment of truth - let's see if this
+            model is any good.
+        </div>
+
+        <div class="subheading">Step 4: Testing and Results</div>
+
+        <div class="blog-section">
+            I took 30 more photos of my palms (15 left, 15 right) to use as test data.
+            I set up the <span class="code-inline">test_images</span> and <span class="code-inline">test_labels</span>
+            in the same way as the training data.
+        </div>
+
+        <pre>
+            <code class="code-section">
+  test_loss, test_acc = model.evaluate(test_images, test_labels)
+  print('Test accuracy:', test_acc)
+            </code>
+        </pre>
+
+        <div class="blog-section">
+            I surprisingly managed to get around <strong>93% accuracy</strong> with this model.
+            I'm sure it can be significantly improved with a more training data, a higher quality camera, and better IR
+            LEDs. Regardless, I was satisfied to even extract the vein data, let alone get a high accuracy!
+        </div>
+
+        <div class="blog-section">
+            Conclusion here?
+        </div>
     </div>
 
 
