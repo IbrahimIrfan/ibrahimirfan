@@ -4,7 +4,7 @@
 }
 
 .header {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .profile-img {
@@ -94,10 +94,15 @@
     font-size: 25px;
 }
 
-blockquote
-{
+blockquote {
   font-style: normal;
   margin-left: 32px;
   border-left: 4px solid #CCC;
   padding-left: 8px;
+}
+
+.signature {
+    margin-top: 20px;
+    color: gray;
+    margin-bottom: 70px;
 }

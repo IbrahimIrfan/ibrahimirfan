@@ -5,3 +5,11 @@ body {
     width: 90%;
     margin: auto;
 }
+
+.highlight {
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgb(207, 226, 254) 50%);
+}
+
+.nav {
+    padding-top: 20px;
+}

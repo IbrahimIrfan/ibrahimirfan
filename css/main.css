@@ -5,7 +5,7 @@
 }
 
 .header {
-    margin-top: 100px;
+    margin-top: 80px;
     text-align: center;
 }
 
@@ -34,6 +34,10 @@
     margin-top: 70px;
 }
 
+.first-section {
+    margin-top: 50px;
+}
+
 .subheading {
     font-weight: 600;
     font-size: 25px;
@@ -58,4 +62,20 @@
 
 .blog-subtitle {
     margin-top: 15px;
+}
+
+.see-all {
+    width: 100%;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.fa-file-pdf {
+    margin-right: 5px;
+}
+
+.red {
+    color: red;
 }
