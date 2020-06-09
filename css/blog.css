@@ -104,5 +104,17 @@ blockquote {
 .signature {
     margin-top: 20px;
     color: gray;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+}
+
+#mc-embedded-subscribe {
+    margin-left: 10px;
+}
+
+.signup-heading {
+    margin-bottom: 10px;
+}
+
+#mc_embed_signup {
+    margin-bottom: 50px;
 }
