@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Blog Title Here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Software Developer - Waterloo Software Engineering 2022" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/writing">Writing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+        </li>
+    </ul>
+
+    <div class="header">
+        <img class="img-header" src="../img/freelance.jpeg">
+        <img class="profile-img" src="../img/me.jpg">
+    </div>
+
+    <div class="blog-title">
+        Big-O Notation
+    </div>
+    <div class="blog-date">June 9, 2020</div>
+
+    <div class="blog-body">
+        <div class="blog-section">
+            Big-O notation is one of the most fundamental concepts to
+            know for interviewing in Computer Science. It's <i>imperative</i>
+            to know this like the back of your hand. It will be relevant for almost every single
+            technical interview question you encounter.
+        </div>
+        <div class="subheading">Introduction: How can we compare algorithms?</div>
+        <div class="blog-section">
+            Let's start by asking ourselves: what's the best way to compare algorithms?
+            There are many different ways to sort a list - how do we know which is best?
+            We need some framework to be able to say that algorithm 1 is "better" than algorithm 2.
+        </div>
+        <div class="blog-section">
+            First, "better" can mean many things. What do we care about? What do we want to optimize?
+            Two common answers to this question are <i>readability</i> and <i>efficiency</i>.
+        </div>
+        <div class="blog-section">
+            Readability is concerned with how clean the code is. Is it well commented?
+            How easy is it to make a change? Can I read it without wanting to claw my eyes out?
+        </div>
+        <div class="blog-section">
+            Efficiency is where Big O comes in. How efficient is this code in terms of time (how long it takes to run)
+            and space (the amount of memory it needs)? We want a basis to compare algorithm efficiency.
+        </div>
+        <div class="blog-section">
+            What if we use <strong>number of lines</strong> as a basis?
+            Algorithm 1 is better than Algorithm 2 because there's less lines of code.
+            Well, this doesn't measure efficiency very effectively. The same algorithm can
+            be implemented with drastically different line counts. I can put all my braces on new lines,
+            does that make the algorithm less efficient? Clearly, this won't work.
+        </div>
+        <div class="blog-section">
+            Okay, what if we use <strong>time</strong> to compare instead?
+            Algorithm 1 is better than Algorithm 2 because it runs in less time.
+            This is better, but my code can run at different speeds depending on where I run it.
+            If I run my code on a supercomputer, it'll run much faster than on my laptop.
+            Actually, my code can take varying times to run on the same machine, depending on
+            various factors like what processes are currently running. This won't work well either.
+        </div>
+        <div class="blog-section">
+            <strong>Big-O notation</strong> gives us a method to compare
+            algorithm efficiency. It asks the question,
+        </div>
+        <blockquote class="blog-section">
+            What is the worst-case runtime of this algorithm relative to its input size?
+        </blockquote>
+        <div class="blog-section">
+            To determine the Big-O complexity, we don't need to count the number of lines or time how long it takes to
+            run.
+            Instead, we just look at the basic steps of the algorithm.
+        </div>
+        <div class="blog-section">
+            For example, a time complexity of <span class="code-inline">O(n<sup>2</sup>)</span> means that
+            the runtime is proportional to the square of the input size <span class="code-inline">n</span>.
+        </div>
+        <div class="blog-section">
+            This gives us a machine-independent basis to judge which algorithm is more efficient,
+            in terms of both time and space.
+        </div>
+        <div class="subheading">The Basic Rules of Big O</div>
+        <div class="blog-section">
+            There are some simple rules to follow when using Big O notation.
+        </div>
+        <div class="subheading">Rule 1: Drop the Constants</div>
+        <div class="blog-section">
+            With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as <span class="code-inline">n</span>
+            gets very large?
+        </div>
+
+
+
+        <div class="subheading">Most Common Big-O Complexities</div>
+        <div class="blog-section">
+            These are the most common runtimes that you'll encounter.
+        </div>
+        <div class="subheading">O(1) - Constant Time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of O(1) if the runtime is <strong>independent of the input size</strong>. For example,
+        </div>
+        <pre>
+            <code>
+  function one_plus_one() {
+      return 1 + 1;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            In this case, no matter what I pass to this function, the runtime stays constant. So, we say it has a complexity of O(1).
+        </div>
+        <div class="subheading">O(log n) - Logarithmic Time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of O(log n) if the runtime is logarithmic to its input size. <strong>Binary search</strong> is the most 
+            common example here.
+            You'll see a logarithmic runtime when you have some sort of <i>division</i> of work. In binary search, the search space is 
+            halved in every iteration.
+        </div>
+        <div class="blog-section">
+            Note that <strong>the base of the log does not matter</strong> in Big-O notation.
+        </div>
+
+
+
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+    </div>
+
+    <div class="signature">
+        Ibrahim
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-100410300-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
