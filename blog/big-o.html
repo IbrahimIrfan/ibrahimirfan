@@ -10,6 +10,10 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/blog.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
 </head>
 
 <body>
@@ -101,7 +105,8 @@
         </div>
         <div class="subheading">Rule 1: Drop the Constants</div>
         <div class="blog-section">
-            With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as <span class="code-inline">n</span>
+            With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as <span
+                class="code-inline">n</span>
             gets very large?
         </div>
 
@@ -113,7 +118,8 @@
         </div>
         <div class="subheading">O(1) - Constant Time</div>
         <div class="blog-section">
-            An algorithm has a complexity of O(1) if the runtime is <strong>independent of the input size</strong>. For example,
+            An algorithm has a complexity of O(1) if the runtime is <strong>independent of the input size</strong>. For
+            example,
         </div>
         <pre>
             <code>
@@ -123,22 +129,25 @@
             </code>
         </pre>
         <div class="blog-section">
-            In this case, no matter what I pass to this function, the runtime stays constant. So, we say it has a complexity of O(1).
+            In this case, no matter what I pass to this function, the runtime stays constant. So, we say it has a
+            complexity of <span class="code-inline">O(1)</span>.
         </div>
         <div class="subheading">O(log n) - Logarithmic Time</div>
         <div class="blog-section">
-            An algorithm has a complexity of O(log n) if the runtime is logarithmic to its input size. <strong>Binary search</strong> is the most 
+            An algorithm has a complexity of <span class="code-inline">O(log n)</span> if the runtime is logarithmic to its input size. <strong>Binary
+                search</strong> is the most
             common example here.
-            You'll see a logarithmic runtime when you have some sort of <i>division</i> of work. In binary search, the search space is 
+            You'll see a logarithmic runtime when you have some sort of <i>division</i> of work. In binary search, the
+            search space is
             halved in every iteration.
         </div>
         <div class="blog-section">
-            Note that <strong>the base of the log does not matter</strong> in Big-O notation.
-        </div>
-
-
-
-        <div class="blog-section">
+            Note that <strong>the base of the log does not matter</strong> in Big-O notation. Why? The change of base
+            of a logarithm means multiplication by a constant factor. For example,
+            <p>$$\log_{2}n = (\frac{1}{\log 2}) \log n$$</p>
+            Similary logic applies for <span class="code-inline">log(n<sup>k</sup>)</span>.
+            <p>$$\log n^k = k \log n$$</p>
+            By Rule #1, we don't care about these constant factors, so we just write <span class="code-inline">O(log n)</span> without the base.
         </div>
         <div class="blog-section">
         </div>
