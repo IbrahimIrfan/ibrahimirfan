@@ -118,3 +118,15 @@ blockquote {
 #mc_embed_signup {
     margin-bottom: 50px;
 }
+
+.mce-error-response {
+    color: red;
+}
+
+.mce-success-response {
+    color: green;
+}
+
+.mce-responses {
+    margin-left: 10px;
+}
