@@ -119,11 +119,11 @@ blockquote {
     margin-bottom: 50px;
 }
 
-.mce-error-response {
+#mce-error-response {
     color: red;
 }
 
-.mce-success-response {
+#mce-success-response {
     color: green;
 }
 
@@ -132,5 +132,5 @@ blockquote {
 }
 
 .mce_inline_error {
-    border-color: red;
+    border-color: red !important;
 }
