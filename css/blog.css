@@ -130,3 +130,7 @@ blockquote {
 .mce-responses {
     margin-left: 10px;
 }
+
+.mce_inline_error {
+    border-color: red;
+}
