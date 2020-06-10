@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Blog Title Here</title>
+    <title>Big-O Notation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Software Developer - Waterloo Software Engineering 2022" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -118,7 +118,8 @@
         </div>
         <div class="subheading">O(1) - Constant Time</div>
         <div class="blog-section">
-            An algorithm has a complexity of O(1) if the runtime is <strong>independent of the input size</strong>. For
+            An algorithm has a complexity of <span class="code-inline">O(1)</span> if the runtime is <strong>independent
+                of the input size</strong>. For
             example,
         </div>
         <pre>
@@ -134,20 +135,113 @@
         </div>
         <div class="subheading">O(log n) - Logarithmic Time</div>
         <div class="blog-section">
-            An algorithm has a complexity of <span class="code-inline">O(log n)</span> if the runtime is logarithmic to its input size. <strong>Binary
-                search</strong> is the most
-            common example here.
-            You'll see a logarithmic runtime when you have some sort of <i>division</i> of work. In binary search, the
-            search space is
-            halved in every iteration.
+            An algorithm has a complexity of <span class="code-inline">O(log n)</span> if the runtime is logarithmic to
+            its input size.
+            You want to look for when you have some sort of <i>division</i> of work.
+        </div>
+        <div class="blog-section">
+            <strong>Binary search</strong> is the most common example here.
+            Let's say you have a phone book sorted by last name and are looking <span class="code-inline">John
+                Doe</span>. Binary search says to open to the middle of the book, and look for <span
+                class="code-inline">
+                Doe</span>. Let's say you've flipped to the page with the letter <span class="code-inline">M</span>.
+            Since the phone book is sorted, you can rip out the second half of the phone book, starting at your current
+            page, and
+            repeat your search in the remaining half. Since your search space is halved every time, you have a
+            logarithmic runtime.
         </div>
         <div class="blog-section">
             Note that <strong>the base of the log does not matter</strong> in Big-O notation. Why? The change of base
             of a logarithm means multiplication by a constant factor. For example,
             <p>$$\log_{2}n = (\frac{1}{\log 2}) \log n$$</p>
-            Similary logic applies for <span class="code-inline">log(n<sup>k</sup>)</span>.
+            Similar logic applies for <span class="code-inline">log(n<sup>k</sup>)</span>.
             <p>$$\log n^k = k \log n$$</p>
-            By Rule #1, we don't care about these constant factors, so we just write <span class="code-inline">O(log n)</span> without the base.
+            By Rule #1, we don't care about these constant factors, so we just write <span class="code-inline">O(log
+                n)</span> without the base.
+        </div>
+        <div class="subheading">O(n) - Linear time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n)</span> if the runtime is linear with respect
+            to the input size. For
+            example,
+        </div>
+        <pre>
+            <code>
+  function find(nums, T) {
+      for (int i = 0; i < nums.length; i++) {
+          if (nums[i] == T) {
+              return true;
+          }
+      }
+      return false;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            Remember, Big-O is concerned with the <i>worst case</i> scenario. In the worst case, we need to traverse
+            through all <span class="code-inline">n</span> of the elements, so this has complexity <span
+                class="code-inline">O(n)</span>.
+        </div>
+        <div class="subheading">O(n log n) - Linearithmic time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n log n)</span> if it runs a logarithmic
+            operation a linear number of times, or vice-versa. <strong>Merge sort</strong> is a very common example.
+        </div>
+        <div class="blog-section">
+            <span class="code-inline">O(n log n)</span> is the fastest acheivable worst-case runtime for comparision
+            based sorting algorithms. Here's <a href="https://www2.hawaii.edu/~nodari/teaching/s17/Notes/Topic-10.html"
+                target="_blank">a great proof</a> on this.
+        </div>
+        <div class="subheading">O(n<sup>2</sup>) - Quadratic time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n<sup>2</sup>)</span> if the runtime is
+            quadratic with respect to the input size. For example,
+        </div>
+        <pre>
+            <code>
+  // Return true if there exists a pair that sums to 0.
+  function find_zero_pair(nums) {
+      for (int i = 0; i < nums.length - 1; i++) {
+          for (int j = i + 1; j < num.length; j++) {
+            if (nums[i] + nums[j] == 0) {
+                return true;
+            }
+          }
+      }
+      return false;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            This nested for-loop is a very common pattern. How do we know that it's <span
+                class="code-inline">O(n<sup>2</sup>)</span>? Let's count the number of iterations.
+        </div>
+        <div class="blog-section">
+            In the first outer loop iteration, the inner loop will run <span class="code-inline">n - 1</span> times,
+            where <span class="code-inline">n</span> is the length of the array. The second time, it will run
+            <span class="code-inline">n - 2</span> times, and so on. We get,
+            <p>$$(n - 1) + (n - 2) + \dots + 1 = \sum_{i = 1}^{n - 1} i = \frac{n(n-1)}{2}$$</p>
+            Which is <span class="code-inline">O(n<sup>2</sup>).</span> This is one of the only summation results you
+            <i>have</i> to know.
+        </div>
+        <div class="subheading">O(2<sup>n</sup>) - Exponential time</div>
+        <div class="blog-section">
+            This is when we've reached the <i>bad</i> runtimes.
+        </div>
+        <pre>
+            <code>
+function fibonacci(n){
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+            </code>
+        </pre>
+        <div class="blog-section">
+            This nested for-loop is a very common pattern. How do we know that it's <span
+                class="code-inline">O(n<sup>2</sup>)</span>?
         </div>
         <div class="blog-section">
         </div>
