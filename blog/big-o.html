@@ -103,11 +103,39 @@
         <div class="blog-section">
             There are some simple rules to follow when using Big O notation.
         </div>
-        <div class="subheading">Rule 1: Drop the Constants</div>
+        <div class="subheading">Rule 1: Ignore the constants</div>
         <div class="blog-section">
             With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as <span
                 class="code-inline">n</span>
-            gets very large?
+            gets very large? Well, multiplying by a constant factor doesn't make much of a difference for large numbers,
+            so it's left out. For example,
+            <p>$$ O(1000000n) = O(n)$$</p>
+            <p>$$ O(\frac{1}{2} \log n) = O(\log n)$$</p>
+            <strong>Note:</strong> In practice, constact factors can matter dramatically. For theoretical purposes, they
+            are ignored.
+        </div>
+        <div class="subheading">Rule 2: Ignore non-dominating terms</div>
+        <div class="blog-section">
+            Since we're concerned with scalability, complexities like <span class="code-inline">O(n<sup>2</sup> + 1)</span>
+            are equivalent to <span class="code-inline">O(n<sup>2</sup>)</span>. The term with the greatest growth rate dominates
+            the expression.
+        </div>
+        <div class="blog-section">
+            You can use this general chain of dominance when simplifying:
+            <p>$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n) \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
+        </div>
+        <div class="subheading">Rule 3: Use a different variable for differing inputs</div>
+        <div class="blog-section">
+            You may be wondering: what if our algorithm depends on the sizes of two different inputs?
+            In that case, use a different variable for each input, like <span class="code-inline">O(s + t)</span>
+            or <span class="code-inline">O(n*m)</span>
+        </div>
+
+        <div class="blog-section">
+            <strong>Note:</strong> Don't get hung up on the variable name inside of the <span class="code-inline">O()</span>.
+            By convention, things like arrays use <span class="code-inline">n</span> and <span class="code-inline">m</span>,
+            whereas strings use <span class="code-inline">s</span> and <span class="code-inline">t</span>.
+            This is only convention, it doesn't matter what you use as long as it's reasonable.
         </div>
 
 
@@ -153,7 +181,7 @@
         <div class="blog-section">
             Note that <strong>the base of the log does not matter</strong> in Big-O notation. Why? The change of base
             of a logarithm means multiplication by a constant factor. For example,
-            <p>$$\log_{2}n = (\frac{1}{\log 2}) \log n$$</p>
+            <p>$$\log_{2}n = (\frac{1}{\log 2}) \log n = c\log n$$</p>
             Similar logic applies for <span class="code-inline">log(n<sup>k</sup>)</span>.
             <p>$$\log n^k = k \log n$$</p>
             By Rule #1, we don't care about these constant factors, so we just write <span class="code-inline">O(log
@@ -221,7 +249,7 @@
             where <span class="code-inline">n</span> is the length of the array. The second time, it will run
             <span class="code-inline">n - 2</span> times, and so on. We get,
             <p>$$(n - 1) + (n - 2) + \dots + 1 = \sum_{i = 1}^{n - 1} i = \frac{n(n-1)}{2}$$</p>
-            Which is <span class="code-inline">O(n<sup>2</sup>).</span> This is one of the only summation results you
+            Which is <span class="code-inline">O(n<sup>2</sup>)</span>. This is one of the only summation results you
             <i>have</i> to know.
         </div>
         <div class="subheading">O(2<sup>n</sup>) - Exponential time</div>
