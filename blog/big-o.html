@@ -43,7 +43,7 @@
         <div class="blog-section">
             Big O notation is one of the most fundamental concepts to
             know for interviewing in Computer Science. It's <i>imperative</i>
-            to know this like the back of your hand. It will be relevant for almost every single
+            that you know this like the back of your hand. It will be relevant for almost every single
             technical interview question you encounter.
         </div>
         <div class="blog-section">
@@ -143,7 +143,8 @@
             This sounds complicated, but bear with me.
         </div>
         <div class="blog-section">
-            All it says is that I should be able to pick some constant <span class="code-inline">c</span> and a point
+            All it says is that for an algorithm to have a time complexity of <span class="code-inline">O(f(n))</span>,
+            I should be able to pick some constant <span class="code-inline">c</span> and a point
             <span class="code-inline">n</span> where <span class="code-inline">c*f(n)</span> will always be greater
             than the runtime. A graph is the best way to see this:
         </div>
@@ -152,7 +153,7 @@
         </div>
         <div class="blog-section">
             In this case, <span class="code-inline">n<sub>0</sub></span> is the point at which
-            <span class="code-inline">c*f(n)</span> is always greater than our runtime. Since this
+            <span class="code-inline">c*f(n)</span> will always greater than our runtime. Since this
             point exists, our runtime is <span class="code-inline">O(f(n))</span>.
             If this doesn't make sense right now, don't worry. Keep reading and come back to this once you've got the
             hang of things.
@@ -183,7 +184,7 @@
             the expression. In other words,
             <p>$$ O(f(x) + g(x)) = O(max(f(x), g(x)))$$</p>
             You can use this general chain of dominating terms when simplifying:
-            <p>$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n) \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
+            <p class="small-math">$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n) \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
             Some examples,
             <p>$$O(n^2 + 3n + 10000000000) = O(n^2)$$</p>
             <p>$$O(n^{9999} + 50n \log n + 2^n) = O(2^n)$$</p>
@@ -212,7 +213,7 @@
         </div>
         <pre>
             <code>
-  // Return true if either of the strings contains `c`.
+  // Return true if either string contains `c`.
   function exists_char(str1, str2, c) {
       for (int i = 0; i < str1.length; i++) {
           if (str1[i] == c) {
@@ -355,10 +356,13 @@
         <div class="subheading">O(n log n) - Linearithmic time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(n log n)</span> if it runs a logarithmic
-            operation a linear number of times, or vice-versa. <strong>Merge sort</strong> is a very common example.
+            operation a linear number of times, or vice-versa. <strong>Merge sort</strong> is a very common example,
+            among
+            other sorting algorithms.
         </div>
         <div class="blog-section">
-            <span class="code-inline">O(n log n)</span> is the fastest acheivable worst-case runtime for comparision
+            In fact, <span class="code-inline">O(n log n)</span> is the fastest acheivable worst-case runtime for
+            comparision
             based sorting algorithms. Here's <a href="https://www2.hawaii.edu/~nodari/teaching/s17/Notes/Topic-10.html"
                 target="_blank">a great proof</a> on this.
         </div>
@@ -396,7 +400,10 @@
         </div>
         <div class="subheading">O(2<sup>n</sup>) - Exponential time</div>
         <div class="blog-section">
-            We've reached the <i>really bad</i> runtimes.
+            We've reached the <i>really bad</i> runtimes. A common example of an algorithm
+            with an exponential runtime is this recursive implementation to return the <span
+                class="code-inline">n<sup>th</sup></span>
+            fibonacci number.
         </div>
         <pre>
             <code>
@@ -410,14 +417,44 @@
             </code>
         </pre>
         <div class="blog-section">
-            This nested for-loop is a very common pattern. How do we know that it's <span
-                class="code-inline">O(n<sup>2</sup>)</span>?
+            How can we find the time complexity? Let's draw a tree of the recursive calls.
         </div>
-        <div class="blog-section-grey">
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/fib.jpeg" alt="Fibonacci tree">
+        </div>
+        <div class="blog-section">
+            Each recursive call takes <span class="code-inline">O(1)</span>, since both
+            branches of the if-statement take constant time. We have
+            <span class="code-inline">O(2<sup>n</sup>)</span> calls, so the total runtime
+            is <span class="code-inline">O(2<sup>n</sup>)</span>.
+        </div>
+        <div class="blog-section-grey blog-section">
             Unlike logarithms, <strong>the base of an exponential matters</strong>.
             There's an exponential difference between <span class="code-inline">2<sup>n</sup></span>
             and <span class="code-inline">3<sup>n</sup></span>.
         </div>
+        <div class="blog-section">
+            <strong>Note:</strong> it is often the case that the
+            recursive complexity is <span class="code-inline">O(b<sup>d</sup>)</span>,
+            where <span class="code-inline">b</span> is the number of branches in one recursion
+            and <span class="code-inline">d</span> is the depth of the recursive tree.
+            But, be careful with functions where the base case and recursive case have different
+            complexities.
+        </div>
+        <div class="subheading">O(n!) - Factorial time</div>
+        <div class="blog-section">
+            Oof. This is almost as bad as it gets. But - sometimes it's unavoidable.
+        </div>
+        <div class="blog-section">
+            What if you had to write a function to generate all permutations of an array of 
+            <span class="code-inline">n</span> numbers?
+        </div>
+        <div class="blog-section">
+            Well, there are <span class="code-inline">n!</span> permutations of
+            <span class="code-inline">n</span> numbers, so any algorithm which 
+            generates them all <i>must</i> be at least <span class="code-inline">O(n!)</span>.
+        </div>
+
         <div class="subheading">Space Complexity</div>
         <div class="blog-section">
             We can also use Big O to analyze the space complexity of an algorithm.
@@ -448,7 +485,7 @@
             Is the space complexity <span class="code-inline">O(1)</span> because we don't use any
             excess variables? No - we need to consider the function calls on the stack.
             Ask yourself: what is the maximum number of <strong>simultaneous</strong> calls on the stack at once?
-            For <span class="code-inline">n = 4</span>,
+            For <span class="code-inline">n = 3</span>,
         </div>
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/stack.jpeg" alt="Recursive stack" style="max-width: 400px;">
@@ -476,14 +513,11 @@
   }
             </code>
         </pre>
-        <div class="blog-section">
-            Let's draw a tree of function calls to see what's going on.
-        </div>
         <div class="img-wrapper">
             <img class="blog-img-content" src="../img/fib.jpeg" alt="Fibonacci tree">
         </div>
         <div class="blog-section">
-            We have <span class="code-inline">O(2<sup>n</sup>)</span> function calls. Does that
+            By counting, we have <span class="code-inline">O(2<sup>n</sup>)</span> function calls. Does that
             mean we need <span class="code-inline">O(2<sup>n</sup>)</span> space? Not quite.
         </div>
 
@@ -495,9 +529,14 @@
 
         <div class="blog-section">
             In this case, the most <strong>simultaneous</strong> calls on the stack
-            happens to be the depth of the recursive tree. We need to, at most, store 
-            <span class="code-inline">O(n)</span> calls on the stack (the leftmost path,
-            for example).
+            is equal to the depth of the recursive tree. We need to, at most, store
+            <span class="code-inline">O(n)</span> calls on the stack.
+        </div>
+
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/fibred.jpeg" alt="Fibonacci tree">
+            <div class="caption">When <span class="code-inline">f(1)</span> finishes, it
+                will pop off the stack, and <span class="code-inline">f(0)</span> will get pushed on.</div>
         </div>
 
         <div class="blog-section">
@@ -506,62 +545,40 @@
             your browser cache stores images and other content from websites you visit so
             that it won't have to reload them next time.
             Alternatively,
-            I can trade time for space by clearing my cache - recomputing things we don't
-            want to store. My websites will load slower, but I won't need to store a cache.
+            you can trade time for space by clearing your cache. Websites will load slower, 
+            but you'll free up the cache space.
+        </div>
+        <div class="subheading">Best and Average Case</div>
+        <div class="blog-section">
+            So far we've only talked about worst case scenarios. How about best and average case?
+            In theory (and most programming interviews), we typically care most about worst case, but in practice, best and average 
+            case may be more suitable.
         </div>
         <div class="blog-section">
+            Worst case can also be misleading sometimes.
         </div>
+        <pre>
+            <code>
+  function weird(n){
+      // Get a random number between [1, 99999999]
+      var x = random_number(1, 99999999);
+      if (x == 1) {
+          // O(n!)
+      } else {
+          // O(n)
+      }
+  }
+            </code>
+        </pre>
         <div class="blog-section">
+            This is an extreme example, but you get the point.
         </div>
+
         <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
-        </div>
-        <div class="blog-section">
+            Big O is worst case. We call the best case <strong>Big Omega (&Omega;)</strong>.
+            <strong>Big Theta (&Theta;)</strong> is the average.
+            You likely won't be asked about these in an interview, but they're good to be
+            aware about.
         </div>
     </div>
 
