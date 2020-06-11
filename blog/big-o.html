@@ -51,39 +51,48 @@
         </div>
         <div class="toc">
             <ul>
-                <li>Introduction: How can we compare algorithms?</li>
-                <li>The Basic Rules of Big O</li>
+                <li><a href="#intro">Introduction: How can we compare algorithms?</a></li>
+                <li><a href="#basic-rules">The Basic Rules of Big O</a></li>
                 <ul>
-                    <li>Rule #1: Ignore the constants</li>
-                    <li>Rule #2: Ignore lower order terms</li>
-                    <li>Rule #3: Use differing variables for differing inputs</li>
-                    <li>Rule #4: Addition rule
+                    <li><a href="#rule1">Rule #1: Ignore the constants</a></li>
+                    <li><a href="#rule2">Rule #2: Ignore lower order terms</a></li>
+                    <li><a href="#rule3">Rule #3: Use differing variables for differing inputs</a></li>
+                    <li><a href="#rule4">Rule #4: Addition rule</a>
                     </li>
-                    <li>Rule #5: Multiplication rule
+                    <li><a href="#rule5">Rule #5: Multiplication rule</a>
                     </li>
                 </ul>
-                <li>Most Common Big O Complexities
+                <li><a href="#most-common">Most Common Big O Complexities
+                        </a>
                 </li>
                 <ul>
-                    <li>O(1) - Constant Time
+                    <li><a href="#constant">O(1) - Constant Time
+                        </a>
                     </li>
-                    <li>O(log n) - Logarithmic Time
+                    <li><a href="#log">O(log n) - Logarithmic Time
+                        </a>
                     </li>
-                    <li>O(n) - Linear time
+                    <li><a href="#linear">O(n) - Linear time
+                        </a>
                     </li>
-                    <li>O(n log n) - Linearithmic time
+                    <li><a href="#linearithmic">O(n log n) - Linearithmic time
+                        </a>
                     </li>
-                    <li>O(n<sup>2</sup>) - Quadratic time
+                    <li><a href="#quadratic">O(n<sup>2</sup>) - Quadratic time
+                        </a>
                     </li>
-                    <li>O(2<sup>n</sup>) - Exponential time
+                    <li><a href="#exponential">O(2<sup>n</sup>) - Exponential time
+                        </a>
                     </li>
-                    <li>O(n!) - Factorial time</li>
+                    <li><a href="#factorial">O(n!) - Factorial time</a></li>
                 </ul>
-                <li>Space Complexity
+                <li><a href="#space">Space Complexity</a>
+                </li>
+                <li><a href="#best-and-average">Best and Average Case</a>
                 </li>
             </ul>
         </div>
-        <div class="subheading">Introduction: How can we compare algorithms?</div>
+        <div class="subheading" id="intro">Introduction: How can we compare algorithms?</div>
         <div class="blog-section">
             Let's start by asking ourselves: what's the best way to compare algorithms?
             There are many different ways to sort a list - how do we know which is best?
@@ -159,11 +168,11 @@
             hang of things.
         </div>
 
-        <div class="subheading">The Basic Rules of Big O</div>
+        <div class="subheading" id="basic-rules">The Basic Rules of Big O</div>
         <div class="blog-section">
             There are some simple rules to follow when using Big O notation.
         </div>
-        <div class="subheading">Rule #1: Ignore the constants</div>
+        <div class="subheading" id="rule1">Rule #1: Ignore the constants</div>
         <div class="blog-section">
             With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as the input size <span
                 class="code-inline">n</span>
@@ -174,7 +183,7 @@
             <strong>Note:</strong> In practice, constact factors can matter dramatically. For theoretical purposes they
             are ignored since we only care about what happens asympotically.
         </div>
-        <div class="subheading">Rule #2: Ignore lower order terms</div>
+        <div class="subheading" id="rule2">Rule #2: Ignore lower order terms</div>
         <div class="blog-section">
             We're only concerned with asymptotic upper bounds. Asympotically, complexities like <span
                 class="code-inline">O(n<sup>2</sup> +
@@ -189,7 +198,7 @@
             <p>$$O(n^2 + 3n + 10000000000) = O(n^2)$$</p>
             <p>$$O(n^{9999} + 50n \log n + 2^n) = O(2^n)$$</p>
         </div>
-        <div class="subheading">Rule #3: Use differing variables for differing inputs</div>
+        <div class="subheading" id="rule3">Rule #3: Use differing variables for differing inputs</div>
         <div class="blog-section">
             You may be wondering: what if our algorithm depends on the sizes of two different inputs?
             In that case, use a different variable for each input, like <span class="code-inline">O(s + t)</span>
@@ -205,7 +214,7 @@
             This is only convention; it doesn't matter what you use as long as it's reasonable.
         </div>
 
-        <div class="subheading">Rule #4: Addition rule</div>
+        <div class="subheading" id="rule4">Rule #4: Addition rule</div>
         <div class="blog-section">
             For addition, the following holds:
             <p>$$O(f(x)) + O(g(x)) = O(f(x) + g(x))$$</p>
@@ -237,7 +246,7 @@
                 + t)</span>, where <span class="code-inline">s</span>
             and <span class="code-inline">t</span> are the respective lengths.
         </div>
-        <div class="subheading">Rule #5: Multiplication rule</div>
+        <div class="subheading" id="rule5">Rule #5: Multiplication rule</div>
         <div class="blog-section">
             Similarly to addition,
             <p>$$O(f(x)) * O(g(x)) = O(f(x) * g(x))$$</p>
@@ -260,11 +269,11 @@
             <span class="code-inline">O(s*t)</span>.
         </div>
 
-        <div class="subheading">Most Common Big O Complexities</div>
+        <div class="subheading" id="most-common">Most Common Big O Complexities</div>
         <div class="blog-section">
             These are the most common runtimes that you'll encounter.
         </div>
-        <div class="subheading">O(1) - Constant Time</div>
+        <div class="subheading" id="constant">O(1) - Constant Time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(1)</span> if the runtime is <strong>independent
                 of the input size</strong>. For
@@ -281,7 +290,7 @@
             In this case, no matter what I pass to this function, the runtime stays constant. So, we say it has a
             complexity of <span class="code-inline">O(1)</span>.
         </div>
-        <div class="subheading">O(log n) - Logarithmic Time</div>
+        <div class="subheading" id="log">O(log n) - Logarithmic Time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(log n)</span> if the runtime is logarithmic to
             its input size.
@@ -318,7 +327,7 @@
         <div class="blog-section">
             <strong>Careful -</strong> this is different from <span class="code-inline">O(log<sup>k</sup>n)</span>.
         </div>
-        <div class="subheading">O(n) - Linear time</div>
+        <div class="subheading" id="linear">O(n) - Linear time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(n)</span> if the runtime is linear with respect
             to the input size. For
@@ -353,7 +362,7 @@
             how many apples I have. I'd be right, but not very accurate. With Big O, we want the
             tightest possible upper bound.
         </div>
-        <div class="subheading">O(n log n) - Linearithmic time</div>
+        <div class="subheading" id="linearithmic">O(n log n) - Linearithmic time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(n log n)</span> if it runs a logarithmic
             operation a linear number of times, or vice-versa. <strong>Merge sort</strong> is a very common example,
@@ -366,7 +375,7 @@
             based sorting algorithms. Here's <a href="https://www2.hawaii.edu/~nodari/teaching/s17/Notes/Topic-10.html"
                 target="_blank">a great proof</a> on this.
         </div>
-        <div class="subheading">O(n<sup>2</sup>) - Quadratic time</div>
+        <div class="subheading" id="quadratic">O(n<sup>2</sup>) - Quadratic time</div>
         <div class="blog-section">
             An algorithm has a complexity of <span class="code-inline">O(n<sup>2</sup>)</span> if the runtime is
             quadratic with respect to the input size. For example,
@@ -398,7 +407,7 @@
             Which is <span class="code-inline">O(n<sup>2</sup>)</span>. This is one of the only summation results you
             <i>have</i> to know.
         </div>
-        <div class="subheading">O(2<sup>n</sup>) - Exponential time</div>
+        <div class="subheading" id="exponential">O(2<sup>n</sup>) - Exponential time</div>
         <div class="blog-section">
             We've reached the <i>really bad</i> runtimes. A common example of an algorithm
             with an exponential runtime is this recursive implementation to return the <span
@@ -441,21 +450,21 @@
             But, be careful with functions where the base case and recursive case have different
             complexities.
         </div>
-        <div class="subheading">O(n!) - Factorial time</div>
+        <div class="subheading" id="factorial">O(n!) - Factorial time</div>
         <div class="blog-section">
             Oof. This is almost as bad as it gets. But - sometimes it's unavoidable.
         </div>
         <div class="blog-section">
-            What if you had to write a function to generate all permutations of an array of 
+            What if you had to write a function to generate all permutations of an array of
             <span class="code-inline">n</span> numbers?
         </div>
         <div class="blog-section">
             Well, there are <span class="code-inline">n!</span> permutations of
-            <span class="code-inline">n</span> numbers, so any algorithm which 
+            <span class="code-inline">n</span> numbers, so any algorithm which
             generates them all <i>must</i> be at least <span class="code-inline">O(n!)</span>.
         </div>
 
-        <div class="subheading">Space Complexity</div>
+        <div class="subheading" id="space">Space Complexity</div>
         <div class="blog-section">
             We can also use Big O to analyze the space complexity of an algorithm.
             This pertains to how much memory it uses relative to its input size.
@@ -545,13 +554,14 @@
             your browser cache stores images and other content from websites you visit so
             that it won't have to reload them next time.
             Alternatively,
-            you can trade time for space by clearing your cache. Websites will load slower, 
+            you can trade time for space by clearing your cache. Websites will load slower,
             but you'll free up the cache space.
         </div>
-        <div class="subheading">Best and Average Case</div>
+        <div class="subheading" id="best-and-average">Best and Average Case</div>
         <div class="blog-section">
             So far we've only talked about worst case scenarios. How about best and average case?
-            In theory (and most programming interviews), we typically care most about worst case, but in practice, best and average 
+            In theory (and most programming interviews), we typically care most about worst case, but in practice, best
+            and average
             case may be more suitable.
         </div>
         <div class="blog-section">
