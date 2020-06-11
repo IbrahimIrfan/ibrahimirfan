@@ -193,7 +193,7 @@
             the expression. In other words,
             <p>$$ O(f(x) + g(x)) = O(max(f(x), g(x)))$$</p>
             You can use this general chain of dominating terms when simplifying:
-            <p class="small-math">$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n) \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
+            <p class="small-math">$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n)$$$$ \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
             Some examples,
             <p>$$O(n^2 + 3n + 10000000000) = O(n^2)$$</p>
             <p>$$O(n^{9999} + 50n \log n + 2^n) = O(2^n)$$</p>
@@ -403,7 +403,7 @@
             In the first outer loop iteration, the inner loop will run <span class="code-inline">n - 1</span> times,
             where <span class="code-inline">n</span> is the length of the array. The second time, it will run
             <span class="code-inline">n - 2</span> times, and so on. We get,
-            <p>$$(n - 1) + (n - 2) + \dots + 1 = \sum_{i = 1}^{n - 1} i = \frac{n(n-1)}{2}$$</p>
+            <p>$$(n - 1) + (n - 2) + \dots + 1$$$$= \sum_{i = 1}^{n - 1} i $$$$= \frac{n(n-1)}{2}$$</p>
             Which is <span class="code-inline">O(n<sup>2</sup>)</span>. This is one of the only summation results you
             <i>have</i> to know.
         </div>
@@ -452,7 +452,7 @@
         </div>
         <div class="subheading" id="factorial">O(n!) - Factorial time</div>
         <div class="blog-section">
-            Oof. This is almost as bad as it gets. But - sometimes it's unavoidable.
+            Oof. 😬 This is almost as bad as it gets. But - sometimes it's unavoidable.
         </div>
         <div class="blog-section">
             What if you had to write a function to generate all permutations of an array of
