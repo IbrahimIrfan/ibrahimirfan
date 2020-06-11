@@ -1,0 +1,602 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Big O Notation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Software Developer - Waterloo Software Engineering 2022" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+</head>
+
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/writing">Writing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+        </li>
+    </ul>
+
+    <div class="header">
+        <img class="img-header" src="../img/big-o.jpg">
+        <img class="profile-img" src="../img/me.jpg">
+    </div>
+
+    <div class="blog-title">
+        Big O Notation
+    </div>
+    <div class="blog-date">June 9, 2020</div>
+
+    <div class="blog-body">
+        <div class="blog-section">
+            Big O notation is one of the most fundamental concepts to
+            know for interviewing in Computer Science. It's <i>imperative</i>
+            to know this like the back of your hand. It will be relevant for almost every single
+            technical interview question you encounter.
+        </div>
+        <div class="blog-section">
+            It can be a challenging concept to grasp at first, but once it *clicks*, it'll come naturally. 😀
+        </div>
+        <div class="toc">
+            <ul>
+                <li>Introduction: How can we compare algorithms?</li>
+                <li>The Basic Rules of Big O</li>
+                <ul>
+                    <li>Rule #1: Ignore the constants</li>
+                    <li>Rule #2: Ignore lower order terms</li>
+                    <li>Rule #3: Use differing variables for differing inputs</li>
+                    <li>Rule #4: Addition rule
+                    </li>
+                    <li>Rule #5: Multiplication rule
+                    </li>
+                </ul>
+                <li>Most Common Big O Complexities
+                </li>
+                <ul>
+                    <li>O(1) - Constant Time
+                    </li>
+                    <li>O(log n) - Logarithmic Time
+                    </li>
+                    <li>O(n) - Linear time
+                    </li>
+                    <li>O(n log n) - Linearithmic time
+                    </li>
+                    <li>O(n<sup>2</sup>) - Quadratic time
+                    </li>
+                    <li>O(2<sup>n</sup>) - Exponential time
+                    </li>
+                    <li>O(n!) - Factorial time</li>
+                </ul>
+                <li>Space Complexity
+                </li>
+            </ul>
+        </div>
+        <div class="subheading">Introduction: How can we compare algorithms?</div>
+        <div class="blog-section">
+            Let's start by asking ourselves: what's the best way to compare algorithms?
+            There are many different ways to sort a list - how do we know which is best?
+            We need some framework to be able to say that algorithm 1 is "better" than algorithm 2.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="https://imgs.xkcd.com/comics/efficiency.png" alt="XKCD 1445 - Efficiency"
+                style="max-width: 400px;">
+            <div class="caption"><a href="https://xkcd.com/1445/">xkcd 1445</a></div>
+        </div>
+        <div class="blog-section">
+            First, "better" can mean many things. What do we care about? What do we want to optimize?
+            Two common answers to this question are <i>readability</i> and <i>efficiency</i>.
+        </div>
+        <div class="blog-section">
+            Readability is concerned with how clean the code is. Is it well commented?
+            How easy is it to make a change? Can I read it without wanting to claw my eyes out?
+        </div>
+        <div class="blog-section">
+            Efficiency is where Big O comes in. How efficient is this code in terms of time (how long it takes to run)
+            and space (the amount of memory it needs)? We want a basis to compare algorithm efficiency.
+        </div>
+        <div class="blog-section">
+            What if we use <strong>number of lines</strong> as a basis?
+            Algorithm 1 is better than Algorithm 2 because there are less lines of code.
+            Well, this doesn't measure efficiency very effectively. The same algorithm can
+            be implemented with drastically different line counts. I can put all my braces on new lines,
+            does that make the algorithm less efficient? Clearly, this won't work.
+        </div>
+        <div class="blog-section">
+            Okay, what if we use <strong>time</strong> to compare instead?
+            Algorithm 1 is better than Algorithm 2 because it runs in less time.
+            This is better, but my code can run at different speeds depending on where I run it.
+            If I run my code on a supercomputer, it'll run much faster than on my laptop.
+            Actually, my code can take varying times to run on the same machine, depending on
+            various factors like what processes are currently running. This won't work well either.
+        </div>
+        <div class="blog-section">
+            <strong>Big O notation</strong> gives us a method to compare
+            algorithm efficiency. It asks the question,
+        </div>
+        <blockquote class="blog-section">
+            What is the worst-case runtime of this algorithm relative to its input size?
+        </blockquote>
+        <div class="blog-section">
+            To determine the Big O complexity, we don't need to count the number of lines or time how long it takes to
+            run.
+            Instead, we just look at the basic steps of the algorithm.
+            This gives us a machine-independent basis to judge which algorithm is more efficient,
+            in terms of both time and space.
+        </div>
+        <div class="blog-section">
+            The formal definition is as follows: if an algorithm has a runtime of <span class="code-inline">
+                O(f(n))
+            </span>, then for large enough <span class="code-inline">n</span>, the runtime is at most
+            <span class="code-inline">c*f(n)</span> for some constant <span class="code-inline">c</span>.
+            This sounds complicated, but bear with me.
+        </div>
+        <div class="blog-section">
+            All it says is that I should be able to pick some constant <span class="code-inline">c</span> and a point
+            <span class="code-inline">n</span> where <span class="code-inline">c*f(n)</span> will always be greater
+            than the runtime. A graph is the best way to see this:
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/big-o-graph.jpeg" alt="Big O Graph" style="max-width: 400px;">
+        </div>
+        <div class="blog-section">
+            In this case, <span class="code-inline">n<sub>0</sub></span> is the point at which
+            <span class="code-inline">c*f(n)</span> is always greater than our runtime. Since this
+            point exists, our runtime is <span class="code-inline">O(f(n))</span>.
+            If this doesn't make sense right now, don't worry. Keep reading and come back to this once you've got the
+            hang of things.
+        </div>
+
+        <div class="subheading">The Basic Rules of Big O</div>
+        <div class="blog-section">
+            There are some simple rules to follow when using Big O notation.
+        </div>
+        <div class="subheading">Rule #1: Ignore the constants</div>
+        <div class="blog-section">
+            With Big O, we only care about <i>growth rate</i>. How does this algorithm scale as the input size <span
+                class="code-inline">n</span>
+            gets very large? Well, multiplying by a constant factor doesn't make much of a difference for large numbers,
+            so it's left out. For example,
+            <p>$$ O(3n) = O(n)$$</p>
+            <p>$$ O(\frac{1}{2} \log n) = O(\log n)$$</p>
+            <strong>Note:</strong> In practice, constact factors can matter dramatically. For theoretical purposes they
+            are ignored since we only care about what happens asympotically.
+        </div>
+        <div class="subheading">Rule #2: Ignore lower order terms</div>
+        <div class="blog-section">
+            We're only concerned with asymptotic upper bounds. Asympotically, complexities like <span
+                class="code-inline">O(n<sup>2</sup> +
+                1)</span>
+            are equivalent to <span class="code-inline">O(n<sup>2</sup>)</span>. The term with the greatest growth rate
+            dominates
+            the expression. In other words,
+            <p>$$ O(f(x) + g(x)) = O(max(f(x), g(x)))$$</p>
+            You can use this general chain of dominating terms when simplifying:
+            <p>$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n) \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
+            Some examples,
+            <p>$$O(n^2 + 3n + 10000000000) = O(n^2)$$</p>
+            <p>$$O(n^{9999} + 50n \log n + 2^n) = O(2^n)$$</p>
+        </div>
+        <div class="subheading">Rule #3: Use differing variables for differing inputs</div>
+        <div class="blog-section">
+            You may be wondering: what if our algorithm depends on the sizes of two different inputs?
+            In that case, use a different variable for each input, like <span class="code-inline">O(s + t)</span>
+            or <span class="code-inline">O(n*m)</span>.
+        </div>
+
+        <div class="blog-section">
+            <strong>Note:</strong> Don't get hung up on the variable name inside of the <span
+                class="code-inline">O()</span>.
+            By convention, things like arrays use <span class="code-inline">n</span> and <span
+                class="code-inline">m</span>,
+            whereas strings use <span class="code-inline">s</span> and <span class="code-inline">t</span>.
+            This is only convention; it doesn't matter what you use as long as it's reasonable.
+        </div>
+
+        <div class="subheading">Rule #4: Addition rule</div>
+        <div class="blog-section">
+            For addition, the following holds:
+            <p>$$O(f(x)) + O(g(x)) = O(f(x) + g(x))$$</p>
+            How can we use this? Let's look at an example:
+        </div>
+        <pre>
+            <code>
+  // Return true if either of the strings contains `c`.
+  function exists_char(str1, str2, c) {
+      for (int i = 0; i < str1.length; i++) {
+          if (str1[i] == c) {
+              return true;
+          }
+      }
+      for (int i = 0; i < str2.length; i++) {
+          if (str2[i] == c) {
+              return true;
+          }
+      }
+      return false;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            In the worst case, we need to entirely look through both <span class="code-inline">str1</span> and
+            <span class="code-inline">str2</span>. Since this happens one after another (the for-loops aren't nested),
+            we add the complexities to get <span class="code-inline">O(s) + O(t)</span> which is <span
+                class="code-inline">O(s
+                + t)</span>, where <span class="code-inline">s</span>
+            and <span class="code-inline">t</span> are the respective lengths.
+        </div>
+        <div class="subheading">Rule #5: Multiplication rule</div>
+        <div class="blog-section">
+            Similarly to addition,
+            <p>$$O(f(x)) * O(g(x)) = O(f(x) * g(x))$$</p>
+            This comes into play when we see some sort of nesting.
+        </div>
+        <pre>
+            <code>
+  function nested_strings(str1, str2) {
+      for (int i = 0; i < str1.length; i++) {
+          for (int j = 0; j < str2.length; j++) {
+              console.log("These loops are nested");
+          }
+      }
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            Since we're executing the inner loop for every outer loop iteration, we get
+            a runtime of
+            <span class="code-inline">O(s*t)</span>.
+        </div>
+
+        <div class="subheading">Most Common Big O Complexities</div>
+        <div class="blog-section">
+            These are the most common runtimes that you'll encounter.
+        </div>
+        <div class="subheading">O(1) - Constant Time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(1)</span> if the runtime is <strong>independent
+                of the input size</strong>. For
+            example,
+        </div>
+        <pre>
+            <code>
+  function one_plus_one() {
+      return 1 + 1;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            In this case, no matter what I pass to this function, the runtime stays constant. So, we say it has a
+            complexity of <span class="code-inline">O(1)</span>.
+        </div>
+        <div class="subheading">O(log n) - Logarithmic Time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(log n)</span> if the runtime is logarithmic to
+            its input size.
+            You want to look for when you have some sort of <i>division</i> of work.
+        </div>
+        <div class="blog-section">
+            <strong>Binary search</strong> is the most common example here.
+            Consider this: you have a phone book sorted by last name and are looking <span class="code-inline">John
+                Doe</span>. Binary search says to open to the middle of the book, and look for <span
+                class="code-inline">
+                Doe</span>. Let's say you've flipped to the page with the letter <span class="code-inline">M</span>.
+            Since the phone book is sorted, and <span class="code-inline">D < M</span>, you can rip out the second half
+                    of the phone book, and
+                    repeat your search in the remaining half.</div>
+
+        <div class="blog-section">
+            If we start with <span class="code-inline">N</span> elements, then after one step we're left with
+            <span class="code-inline">N / 2</span>. After another we have <span class="code-inline">N / 4</span>, and so
+            on.
+            Since the search space is halved every time, you have a
+            logarithmic runtime (in this case, with a base of 2).
+        </div>
+        <div class="blog-section">
+            Note that <strong>the base of the log does not matter</strong> with Big O notation. Why? Because the change
+            of
+            base
+            of a logarithm means multiplication by a constant factor. For example,
+            <p>$$\log_{2}n = (\frac{1}{\log 2}) \log n = c\log n$$</p>
+            Similar logic applies for <span class="code-inline">log(n<sup>k</sup>)</span>.
+            <p>$$\log n^k = k \log n$$</p>
+            By Rule #1, we don't care about these constant factors, so we just write <span class="code-inline">O(log
+                n)</span> without the base.
+        </div>
+        <div class="blog-section">
+            <strong>Careful -</strong> this is different from <span class="code-inline">O(log<sup>k</sup>n)</span>.
+        </div>
+        <div class="subheading">O(n) - Linear time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n)</span> if the runtime is linear with respect
+            to the input size. For
+            example,
+        </div>
+        <pre>
+            <code>
+  // Return true if x is in nums.
+  function find(nums, x) {
+      for (int i = 0; i < nums.length; i++) {
+          if (nums[i] == x) {
+              return true;
+          }
+      }
+      return false;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            Remember, Big O is concerned with the <i>worst case</i> scenario. In the worst case, we need to traverse
+            through all <span class="code-inline">n</span> of the elements, so this has complexity <span
+                class="code-inline">O(n)</span>.
+        </div>
+        <div class="blog-section">
+            <strong>Note:</strong> it's technically correct to say that this algorithm runs in
+            <span class="code-inline">O(n<sup>2</sup>)</span>,
+            <span class="code-inline">O(n<sup>3</sup>)</span>,
+            <span class="code-inline">O(2<sup>n</sup>)</span>, or anything larger than
+            <span class="code-inline">O(n)</span>
+            . Think of it this way -
+            we want an upper bound. If I have 10 apples, I can say that 1000 is an upper bound for
+            how many apples I have. I'd be right, but not very accurate. With Big O, we want the
+            tightest possible upper bound.
+        </div>
+        <div class="subheading">O(n log n) - Linearithmic time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n log n)</span> if it runs a logarithmic
+            operation a linear number of times, or vice-versa. <strong>Merge sort</strong> is a very common example.
+        </div>
+        <div class="blog-section">
+            <span class="code-inline">O(n log n)</span> is the fastest acheivable worst-case runtime for comparision
+            based sorting algorithms. Here's <a href="https://www2.hawaii.edu/~nodari/teaching/s17/Notes/Topic-10.html"
+                target="_blank">a great proof</a> on this.
+        </div>
+        <div class="subheading">O(n<sup>2</sup>) - Quadratic time</div>
+        <div class="blog-section">
+            An algorithm has a complexity of <span class="code-inline">O(n<sup>2</sup>)</span> if the runtime is
+            quadratic with respect to the input size. For example,
+        </div>
+        <pre>
+            <code>
+  // Return true if there exists a pair that sums to 0.
+  function find_zero_pair(nums) {
+      for (int i = 0; i < nums.length - 1; i++) {
+          for (int j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] == 0) {
+                return true;
+            }
+          }
+      }
+      return false;
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            This nested for-loop is a very common pattern. How do we know that it's <span
+                class="code-inline">O(n<sup>2</sup>)</span>? Let's count the number of iterations.
+        </div>
+        <div class="blog-section">
+            In the first outer loop iteration, the inner loop will run <span class="code-inline">n - 1</span> times,
+            where <span class="code-inline">n</span> is the length of the array. The second time, it will run
+            <span class="code-inline">n - 2</span> times, and so on. We get,
+            <p>$$(n - 1) + (n - 2) + \dots + 1 = \sum_{i = 1}^{n - 1} i = \frac{n(n-1)}{2}$$</p>
+            Which is <span class="code-inline">O(n<sup>2</sup>)</span>. This is one of the only summation results you
+            <i>have</i> to know.
+        </div>
+        <div class="subheading">O(2<sup>n</sup>) - Exponential time</div>
+        <div class="blog-section">
+            We've reached the <i>really bad</i> runtimes.
+        </div>
+        <pre>
+            <code>
+  function fibonacci(n){
+      if (n <= 1) {
+          return n;
+      } else {
+          return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            This nested for-loop is a very common pattern. How do we know that it's <span
+                class="code-inline">O(n<sup>2</sup>)</span>?
+        </div>
+        <div class="blog-section-grey">
+            Unlike logarithms, <strong>the base of an exponential matters</strong>.
+            There's an exponential difference between <span class="code-inline">2<sup>n</sup></span>
+            and <span class="code-inline">3<sup>n</sup></span>.
+        </div>
+        <div class="subheading">Space Complexity</div>
+        <div class="blog-section">
+            We can also use Big O to analyze the space complexity of an algorithm.
+            This pertains to how much memory it uses relative to its input size.
+        </div>
+        <div class="blog-section">
+            It works exactly the same for space as it does for time.
+            For example, if we need to create an array of size <span class="code-inline">n</span>,
+            we need <span class="code-inline">O(n)</span> space.
+        </div>
+        <div class="blog-section">
+            In recursive algorithms, stack calls are also counted in the space complexity.
+            We need space to store these function calls on the stack. For example, what's the
+            space complexity for the function below?
+        </div>
+        <pre>
+            <code>
+  function recursive(n){
+      if (n < 1) {
+          return 1;
+      } else {
+          return 2*recursive(n - 1);
+      }
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            Is the space complexity <span class="code-inline">O(1)</span> because we don't use any
+            excess variables? No - we need to consider the function calls on the stack.
+            Ask yourself: what is the maximum number of <strong>simultaneous</strong> calls on the stack at once?
+            For <span class="code-inline">n = 4</span>,
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/stack.jpeg" alt="Recursive stack" style="max-width: 400px;">
+            <div class="caption">The call stack in the worst case</div>
+        </div>
+        <div class="blog-section">
+            Each call adds a frame to the stack. Since we have <span class="code-inline">
+                O(n)
+            </span> calls, and one frame on the stack for every call, we need
+            <span class="code-inline">O(n)</span> space.
+        </div>
+        <div class="blog-section">
+            Just becasue you have <span class="code-inline">n</span> recursive calls
+            doesn't mean you need <span class="code-inline">O(n)</span> space.
+            How about the Fibonacci example from earlier?
+        </div>
+        <pre>
+            <code>
+  function fibonacci(n){
+      if (n <= 1) {
+          return n;
+      } else {
+          return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            Let's draw a tree of function calls to see what's going on.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/fib.jpeg" alt="Fibonacci tree">
+        </div>
+        <div class="blog-section">
+            We have <span class="code-inline">O(2<sup>n</sup>)</span> function calls. Does that
+            mean we need <span class="code-inline">O(2<sup>n</sup>)</span> space? Not quite.
+        </div>
+
+        <div class="blog-section">
+            When a function is called, its frame is added to the stack. When it returns, the
+            frame is popped off. All of these <span class="code-inline">O(2<sup>n</sup>)</span>
+            function calls don't exist on the stack at the same time.
+        </div>
+
+        <div class="blog-section">
+            In this case, the most <strong>simultaneous</strong> calls on the stack
+            happens to be the depth of the recursive tree. We need to, at most, store 
+            <span class="code-inline">O(n)</span> calls on the stack (the leftmost path,
+            for example).
+        </div>
+
+        <div class="blog-section">
+            There is almost always a <i>space-time tradeoff</i> in algorithm design.
+            We can trade space for time by storing things we've seen before. For example,
+            your browser cache stores images and other content from websites you visit so
+            that it won't have to reload them next time.
+            Alternatively,
+            I can trade time for space by clearing my cache - recomputing things we don't
+            want to store. My websites will load slower, but I won't need to store a cache.
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+        <div class="blog-section">
+        </div>
+    </div>
+
+    <div class="signature">
+        Ibrahim
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-100410300-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
