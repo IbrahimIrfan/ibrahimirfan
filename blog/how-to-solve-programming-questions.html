@@ -41,16 +41,16 @@
         <div class="subheading">The 6 Steps</div>
         <div class="blog-section">
             These are the 6 steps I use in <i>every single interview</i>.
-            It's drastically changed my success ratio. The best part is - 
+            It's drastically changed my success ratio. The best part is -
             it's simple!
         </div>
         <div class="subheading">Step 1: Restate the Problem</div>
         <div class="blog-section">
-            I don't care if you've done the problem before. I don't care 
-            if you're the best software developer in the world. 
-            I don't care if you already solved the problem in your head 
+            I don't care if you've done the problem before. I don't care
+            if you're the best engineer in the world.
+            I don't care if you already solved the problem in your head
             as it's being explained.
-            The very first thing you 
+            The very first thing you
             need to do is <strong>restate the problem</strong>.
         </div>
         <blockquote class="blog-section">
@@ -60,8 +60,8 @@
             There are so many benefits to such a trivial thing.
             <ul class="list">
                 <li>
-                    It instantly starts your interview with 
-                    mutual understanding. Communication is one of 
+                    It instantly starts your interview with
+                    mutual understanding. Communication is one of
                     the most important things that you're being evaluated on.
                     This shows your interviewer that you care about properly
                     understanding problems without rushing into them.
@@ -81,23 +81,179 @@
             So, we want a function that takes in X and returns Y based on Z
         </blockquote>
         <div class="blog-section">
-            For example, if the question is to find if a pair in an array of numbers 
+            For example, if the question is to find if a pair in an array of numbers
             sums to 0,
         </div>
         <blockquote class="blog-section">
-            <strong>So, we want a function that takes in</strong> an array of numbers 
-            <strong>and returns </strong> 
-            true or false <strong>based on</strong> whether or not there's a pair that 
+            <strong>So, we want a function that takes in</strong> an array of numbers
+            <strong>and returns </strong>
+            true or false <strong>based on</strong> whether or not there's a pair that
             sums to 0.
         </blockquote>
         <div class="blog-section">
-            That's it. Yup. That's it. Step 1: ✅
+            That's it. Yup. That's it.
+        </div>
+        <div class="blog-section">
+            Step 1: ✅
         </div>
         <div class="subheading">Step 2: Ask Questions</div>
+        <div class="blog-section">
+            Another extremely important step that can be very easy to forget.
+            Before you code, you have to ask questions. Think about:
+            <ul class="list">
+                <li>Edge cases (really big and really small numbers)</li>
+                <li>Special cases (like empty strings/arrays, null params, repetition, etc)</li>
+                <li>What you should optimize for (time, space, readability)</li>
+            </ul>
+        </div>
+        <div class="blog-section">
+            Continuing the last example, I would ask:
+            <ul class="list">
+                <li>Can there be positive/negative numbers in the array?</li>
+                <li>Is the array sorted?</li>
+                <li>Can numbers repeat?</li>
+                <li>Can I assume that adding two numbers together won't overflow a
+                    standard int?
+                </li>
+            </ul>
+        </div>
+        <div class="blog-section">
+            I cannot tell you how many times I have had interviewers withhold
+            important information to a question which I only uncovered by asking about it.
+            Had I not, I would have done the question much differently.
+        </div>
+        <div class="blog-section">
+            If you get good at this step, it can save you a world of problems and definitely
+            gives you bonus points for good communication.
+        </div>
+        <div class="blog-section">
+            Step 2: ✅
+        </div>
+        <div class="blog-section">
+            Now we can <span class="very-big">FINALLY</span> start coding, right? Right?
+        </div>
+
+        <div class="blog-section">
+            Wrong!
+        </div>
         <div class="subheading">Step 3: State Brute Force</div>
+        <div class="blog-section">
+            Still no coding. The next thing you should do is state the brute force solution (and ideally it's
+            complexity).
+            This is the most basic solution, often acheived by just trying every possible outcome (hence "brute force").
+            <strong>You should only state this solution - do not code it!</strong>
+        </div>
+        <blockquote class="blog-section">
+            But why? The brute force solution sucks! It'll make me look bad!
+        </blockquote>
+        <div class="blog-section">
+            Glad you asked!
+        </div>
+        <div class="blog-section">
+            It won't make you look bad - you're not saying "this is the best solution!", you're just stating
+            the first solution that comes to mind.
+        </div>
+        <div class="blog-section blog-section-grey">
+            If you take nothing else away from this section, remember this: you're being judged on your
+            <strong>problem solving skills</strong>. Not how quickly you can come up with the best solution.
+        </div>
+        <div class="blog-section">
+            By stating the brute force solution, you give yourself a starting point. Often times,
+            the most optimal answer can come by directly improving inefficiencies in the brute force.
+        </div>
+
+        <div class="blog-section">
+            For our array example, the brute force would be to just check every single pair in the array for one
+            that sums to 0. We have <span class="code-inline">O(n<sup>2</sup>)</span> pairs, so this would run in
+            <span class="code-inline">O(n<sup>2</sup>)</span>.
+        </div>
+        <div class="blog-section">
+            Once you've stated the brute force solution, you're done this step.
+            Not so bad so far, right?
+        </div>
+
+        <div class="blog-section">
+            Step 3: ✅
+        </div>
         <div class="subheading">Step 4: Optimize</div>
+        <div class="blog-section">
+            Welcome to the hardest step! Now that we have a starting point (the brute force), we want to find the most
+            optimal solution.
+        </div>
+        <div class="blog-section">
+            This is the hardest step because there's no step-by-step guaranteed way to get the most optimal solution.
+            There are only strategies to help you along the way. And quite frankly, that's all you need!
+        </div>
+        <div class="blog-section">
+            I've passed many interviews in which I did not get the most optimal answer. If you show your interviewer
+            that you have good problem solving skills, and you get a reasonable answer with justification, you'll be
+            golden. ⭐
+            Here's my process:
+            <ol class="list">
+                <li>Identify the type of problem - is this question about strings, graphs, dynamic programming?</li>
+                <li>Recall strategies used to solve these kinds of problems. For example, if I have a graph problem,
+                    can I use BFS or DFS in any way to help me? For dynamic programming, can I use a memoization table?
+                    Refer to the details of the question for hints - does the data given to you have a particular
+                    order or property that can help you make assumptions?
+                </li>
+                <li>If that doesn't work, can I transform this into a different kind of problem?</li>
+            </ol>
+            Honestly, this comes with practice. You need to solve questions yourself to get a sense of what strategies
+            work and when.
+        </div>
+        <div class="blog-section">
+            <strong>Pro Tip:</strong> ask your interviewer as you're thinking out loud if you're on the right track.
+            If you are, they'll tell you, and if you're not, you might get a hint out of it. Remember - an interview is
+            supposed to be collaborative.
+        </div>
+        <div class="blog-section">
+            Once you find an algorithm you like, quickly check with your interviewer before starting to code.
+        </div>
+        <blockquote class="blog-section">
+            I think this solution works and is optimal, how does it sound to you? Should I go ahead and start coding?
+        </blockquote>
+        <div class="blog-section">
+            If you get the green light, you're good to go. Step 4: ✅
+        </div>
         <div class="subheading">Step 5: Code</div>
+        <div class="blog-section">
+            Now we can finally start coding! Some tips:
+            <ol class="list">
+                <li>Keep it clean - it goes a long way. Print neatly if you're on a whiteboard and leave a line or two
+                    of
+                    space inbetween just in case you need to add something. And please, use good variable names.
+                </li>
+                <li>Don't worry about being perfect the first time. No one does this on the job, it's an iterative
+                    process.</li>
+                <li>Make sure you know how to use common data structures in the language of your choice. This includes
+                    hash maps, hash sets, stacks, and others. You should also know the runtime of the common operations
+                    on
+                    these structures.
+                </li>
+            </ol>
+        </div>
+        <div class="blog-section">
+            Once you're confident, you can move on to the last step. Step 5: ✅
+        </div>
         <div class="subheading">Step 6: Test</div>
+        <div class="blog-section">
+            You've written your code - all that's left is to test.
+        </div>
+        <div class="blog-section">
+            The biggest piece of advice I can give you here is to test your <strong>code</strong>,
+            not your <strong>algorithm</strong>. Go through the exact code you wrote down. This 
+            is especially important in whiteboard interviews where you can't run your code.
+        </div>
+        <div class="blog-section">
+            Run through some good test cases. What makes a good test case?
+        </div>
+        <div class="blog-section">
+            For starters, you don't need to test the same thing twice. Each test case should serve 
+            a specific purpose. Use your best judgment and make sure you've got your edge cases covered!
+        </div>
+        <div class="blog-section">
+            Step 6: ✅
+        </div>
         <div class="subheading">General Tips</div>
         <div class="blog-section">
             Some general tips to help you,
@@ -106,7 +262,7 @@
                 <li>Slow down</li>
                 <li>Be honest when you don't know</li>
                 <li>Draw diagrams</li>
-                <li>Keep it clean</li>
+                <li>Be confident! You got this</li>
             </ul>
         </div>
     </div>
