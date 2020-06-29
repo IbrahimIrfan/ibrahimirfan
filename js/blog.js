@@ -9,7 +9,7 @@ blog_data = [
         "title": "The Wonderfully Weird World of Freelancing",
         "image": "img/freelance.jpeg",
         "link": "the-wonderfully-weird-world-of-freelancing",
-        "desc": "Recalling my unconventional freelance experiences, including close calls with tax fraud, the next Uber, and the adult film industry"
+        "desc": "Recalling my unconventional freelance experiences, including close calls with tax fraud, the next Uber, and the adult film industry."
     },
     {
         "title": "How to Build a Palm Vein Authentication System",
