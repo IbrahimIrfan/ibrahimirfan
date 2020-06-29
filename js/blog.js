@@ -29,7 +29,9 @@ function get_blog_card(title, image, link, desc) {
     var blog_card =
     `<div class="card blog-preview">
         <div class="card-body row">
-            <img class="blog-img" src="${image}" alt="${title}">
+            <div class="blog-img-wrapper">
+                <img class="blog-img" src="${image}" alt="${title}">
+            </div>
             <div class="blog-details">
                 <h5 class="card-title blog-title">
                     ${title}

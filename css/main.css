@@ -20,16 +20,6 @@
     font-size: 20px;
 }
 
-.company-icon {
-    height: 18px;
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.stripe {
-    margin-right: 5px;
-}
-
 .section {
     margin-top: 70px;
 }
@@ -51,6 +41,10 @@
 
 .blog-img {
     width: 100%;
+}
+
+.blog-img-wrapper {
+    height: auto;
 }
 
 .blog-title {
