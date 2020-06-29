@@ -1,5 +1,11 @@
 blog_data = [
     {
+        "title": "How to Get a Programming Job With No Experience",
+        "image": "img/coding.jpg",
+        "link": "get-programming-job-no-experience",
+        "desc": "What I wish someone told me before I started looking for my first programming job."
+    },
+    {
         "title": "The Complete Guide to Big O Notation",
         "image": "img/big-o.jpg",
         "link": "big-o",
