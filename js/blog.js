@@ -26,7 +26,7 @@ blog_data = [
     {
         "title": "First Year in Waterloo Engineering",
         "image": "img/uw.jpeg",
-        "link": "first-year-in-waterloo-engineerin",
+        "link": "first-year-in-waterloo-engineering",
         "desc": "Reflections at the 1 year mark."
     },
 ];
