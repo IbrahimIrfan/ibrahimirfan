@@ -1,5 +1,11 @@
 blog_data = [
     {
+        "title": "6 Steps to Acing the Coding Interview",
+        "image": "img/whiteboard.jpg",
+        "link": "6-steps-to-acing-the-coding-interview",
+        "desc": "How to approach technical interviews, step-by-step."
+    },
+    {
         "title": "How to Get a Programming Job With No Experience",
         "image": "img/coding.jpg",
         "link": "get-programming-job-no-experience",
