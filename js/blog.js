@@ -1,5 +1,11 @@
 blog_data = [
     {
+        "title": "Never Too High, Never Too Low ft. The Greatest Sporting Miracle Ever",
+        "image": "img/champions.jpg",
+        "link": "never-too-high-never-too-low",
+        "desc": "Keeping level-headed and the story of Leicester City's famous title."
+    },
+    {
         "title": "6 Steps to Acing the Coding Interview",
         "image": "img/whiteboard.jpg",
         "link": "6-steps-to-acing-the-coding-interview",
