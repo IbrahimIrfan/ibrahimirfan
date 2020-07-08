@@ -155,3 +155,11 @@ pre {
     border-radius: 5px;
     padding: 20px;
 }
+
+.readmore-title {
+    font-weight: bold;
+}
+
+.readmore-wrapper {
+    margin-bottom: 100px;
+}
