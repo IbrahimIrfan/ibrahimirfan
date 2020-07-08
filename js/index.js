@@ -1,6 +1,6 @@
-window.onload = function () {
+window.addEventListener("load", function () {
     populate_blog_list()
-}
+});
 
 function populate_blog_list() {
     var blog_list = document.getElementById("blog-list-partial");
