@@ -76,8 +76,8 @@ function populate_notes_list() {
 }
 
 function get_note_link(note) {
-    return "<li>" + 
-    "<a target='_blank' href='" + note.link + "'>" + note.code + "</a>"
-    + "</li>"
+    return "<li>" +
+        "<a target='_blank' href='" + note.link + "'>" + note.code + "</a>"
+        + "</li>"
 }
 

@@ -1,7 +1,7 @@
 blog_data = [
     {
         "title": "Never Too High, Never Too Low ft. The Greatest Sporting Miracle Ever",
-        "image": "img/champions.jpg",
+        "image": "img/leicester.jpg",
         "link": "never-too-high-never-too-low",
         "desc": "Keeping level-headed and the story of Leicester City's famous title."
     },
