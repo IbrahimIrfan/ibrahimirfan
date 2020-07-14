@@ -14,6 +14,9 @@ function populate_nav() {
         "    <a class='nav-link' href='/writing'>Writing</a>" +
         "</li>" +
         "<li class='nav-item'>" +
+        "    <a class='nav-link' href='/courses'>Courses</a>" +
+        "</li>" +
+        "<li class='nav-item'>" +
         "    <a class='nav-link' href='/notes'>Notes</a>" +
         "</li>" +
         "<li class='nav-item'>" +
