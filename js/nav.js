@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 
 function populate_nav() {
     var body = document.body;
-    nav = "<ul class='nav justify-content-center'>" +
+    nav = "<ul class='nav justify-content-end'>" +
         "<li class='nav-item'>" +
         "    <a class='nav-link active' href='/'>" +
         "       <img class='nav-logo' src='/img/logo.png'>" +
