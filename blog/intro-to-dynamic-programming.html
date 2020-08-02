@@ -118,9 +118,10 @@
         if (n <= 1) {
             return n;
         }
-        memo = [0] * (n + 1);
+        // Start the memo as [0,1,0,...,0]
+        memo = Array(n + 1).fill(0);
         memo[1] = 1;
-        for (int i = 2; i < n + 1; i++) {
+        for (var i = 2; i < n + 1; i++) {
             memo[i] = memo[i - 1] + memo[i - 2];
         }
         return memo[n];
