@@ -52,7 +52,7 @@
                     </li>
                 </ul>
                 <li><a href="#most-common">Most Common Big O Complexities
-                        </a>
+                    </a>
                 </li>
                 <ul>
                     <li><a href="#constant">O(1) - Constant Time
@@ -182,7 +182,8 @@
             the expression. In other words,
             <p>$$ O(f(x) + g(x)) = O(max(f(x), g(x)))$$</p>
             You can use this general chain of dominating terms when simplifying:
-            <p class="small-math">$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n)$$$$ \lt O(n^2) \lt O(2^n) \lt O(n!)$$</p>
+            <p class="small-math">$$O(1) \lt O(\log n) \lt O(n) \lt O(n \log n)$$$$ \lt O(n^2) \lt O(2^n) \lt O(n!)$$
+            </p>
             Some examples,
             <p>$$O(n^2 + 3n + 10000000000) = O(n^2)$$</p>
             <p>$$O(n^{9999} + 50n \log n + 2^n) = O(2^n)$$</p>
@@ -426,6 +427,10 @@
             <span class="code-inline">O(2<sup>n</sup>)</span> calls, so the total runtime
             is <span class="code-inline">O(2<sup>n</sup>)</span>.
         </div>
+        <div class="blog-section">
+            If you're curious as to how this can be improved, check out the <a
+                href="/blog/intro-to-dynamic-programming">Introduction to Dynamic Programming</a>.
+        </div>
         <div class="blog-section-grey blog-section">
             Unlike logarithms, <strong>the base of an exponential matters</strong>.
             There's an exponential difference between <span class="code-inline">2<sup>n</sup></span>
@@ -570,7 +575,7 @@
             </code>
         </pre>
         <div class="blog-section">
-            This is an extreme example, but you get the point. In practice, we should 
+            This is an extreme example, but you get the point. In practice, we should
             evaluate the tradeoffs and make reasonable decisions.
         </div>
 

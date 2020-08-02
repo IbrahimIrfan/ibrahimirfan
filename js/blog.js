@@ -1,5 +1,11 @@
 blog_data = [
     {
+        "title": "Introduction to Dynamic Programming",
+        "image": "img/dp.png",
+        "link": "intro-to-dynamic-programming",
+        "desc": "An intro to dynamic programming - memoization, greedy, and more."
+    },
+    {
         "title": "Never Too High, Never Too Low ft. The Greatest Sporting Miracle Ever",
         "image": "img/leicester.jpg",
         "link": "never-too-high-never-too-low",

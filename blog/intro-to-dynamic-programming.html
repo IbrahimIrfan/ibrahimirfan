@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Introduction to Dynamic Programming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An intro to dynamic programming - memoization, greedy, and more." />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+
+<body>
+    <div class="header">
+        <img class="img-header" src="../img/dp.png">
+        <img class="profile-img" src="../img/me.jpg">
+    </div>
+
+    <div class="blog-title">
+        Introduction to Dynamic Programming
+    </div>
+    <div class="blog-date">July 29, 2020</div>
+
+    <div class="blog-body">
+        <div class="blog-section">
+            Dynamic programming is tough.
+            These are typically the hardest kinds of questions that get asked in coding
+            interviews.
+        </div>
+        <div class="blog-section">
+            Turns out, at its heart, it's really not that complicated!
+            This is meant to be a simple breakdown of what dynamic programming is and some common techniques
+            to get you started.
+        </div>
+        <div class="toc">
+            <ul>
+                <li><a href="#motivation">Motivation</a></li>
+                <li><a href="#memoization">Memoization</a></li>
+                <li><a href="#greedy">Greedy</a>
+                </li>
+                <li><a href="#tips">General Tips</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subheading" id="motivation">
+            Motivation
+        </div>
+        <div class="blog-section">
+            First, we need some motivation. Let's take a look at an example. How can we compute the
+            <span class="code-inline">n<sup>th</sup></span> fibonacci number
+            recursively?
+        </div>
+        <pre>
+            <code>
+  function fibonacci(n){
+      if (n <= 1) {
+          return n;
+      } else {
+          return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+  }
+            </code>
+        </pre>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/fib.jpeg" alt="Fibonacci tree">
+        </div>
+        <div class="blog-section">
+            Looking at the tree of recursive calls, we know that this has a runtime of
+            <span class="code-inline">O(2<sup>n</sup>)</span>. Check out <a href="/blog/big-o">
+                The Complete Guide to Big O Notation</a> if you want a more in-depth
+            explanation as to why.
+        </div>
+        <div class="blog-section">
+            We have a lot of wasted calls here! For example, when <span class="code-inline">n = 4</span>, <span
+                class="code-inline">f(1)</span> is computed 3 times.
+            This gets exponentially worse for higher <span class="code-inline">n</span>.
+        </div>
+        <div class="blog-section">
+            Well, what if we had a way to store, or remember, the results we've already computed?
+            So, instead of recomputing things, we can just reference the
+            answer we remembered. That's exactly what memoization is.
+        </div>
+        <div class="subheading" id="memoization">
+            Memoization
+        </div>
+        <div class="blog-section">
+            Memoization is the heart of dynamic programming. It's all about remembering (or pre-computing)
+            the results to subproblems.
+        </div>
+        <div class="blog-section">
+            Knowing this, how can we improve on the fibonacci example from earlier?
+            What if we used a hash table to store the intermediate results, like this:
+        </div>
+        <pre>
+            <code>
+  memo = {}
+  function fibonacci(n){
+      if (!memo.contains(n)) {
+        if (n <= 1) {
+          memo[n] = n;
+        } else {
+          memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
+        }
+      }
+      return memo[n]
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            This is good, but we can actually improve on this even more using an iterative approach instead of
+            recursive. Let's use an array for our memo instead of a hash table.
+        </div>
+        <pre>
+            <code>
+  function fibonacci(n){
+        if (n <= 1) {
+            return n;
+        }
+        memo = [0] * (n + 1);
+        memo[1] = 1;
+        for (int i = 2; i < n + 1; i++) {
+            memo[i] = memo[i - 1] + memo[i - 2];
+        }
+        return memo[n];
+  }
+            </code>
+        </pre>
+        <div class="blog-section">
+            <strong>Note:</strong> you can actually improve this <i>even more</i> by just using two variables to keep
+            track of the
+            last two numbers. Try it yourself!
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/fib_memo.png" alt="Memoization Array">
+            <div class="caption">Our memoization array</div>
+        </div>
+        <div class="blog-section">
+            Now, all we do is fill this memoization array. To do that, we only compute each <span
+                class="code-inline">f(i)</span>
+            once, with <span class="code-inline">i</span> from <span class="code-inline">0 -> n</span>.
+            So, this gives us a runtime of <span class="code-inline">O(n)</span>.
+        </div>
+        <div class="blog-section">
+            Memoizing has just brought us from a runtime of
+            <span class="code-inline">O(2<sup>n</sup>)</span> to
+            <span class="code-inline">O(n)</span>. 🤯 Pretty great, right?
+        </div>
+        <div class="subheading" id="greedy">
+            Greedy
+        </div>
+        <div class="blog-section">
+            Greedy is a type of algorithm that you can use to solve certain dynamic programming problems.
+            It is exactly how it sounds.
+        </div>
+        <div class="blog-section">
+            The greedy approach is, to get the best overall solution, pick the best local solution every time.
+            In other words, be greedy! At each step, we want to pick the option that will benefit us the most in the
+            current scope.
+        </div>
+        <div class="blog-section">
+            Let's say you had the following coin change 💰 problem:
+        </div>
+        <div class="blog-section">
+            Given an integer amount, return the minimum number of coins needed to create that amount.
+            Assume the coins have values <span class="code-inline">[25, 10, 5, 2, 1]</span>.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coins1.jpeg" alt="Available Coins">
+            <div class="caption">Available coins.</div>
+        </div>
+        <div class="blog-section">
+            So, for example, if I wanted to create the amount <span class="code-inline">19</span> using
+            the minimum amount of coins, I can first use coin <span class="code-inline">10</span>, then
+            <span class="code-inline">5</span>, then two <span class="code-inline">2</span>'s.
+            We used 4 coins, so our answer is 4.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coin_ex_1.jpeg" alt="Coin Example 1">
+            <div class="caption">Creating 19 with 4 coins.</div>
+        </div>
+        <div class="blog-section">
+            What are we actually doing here? <strong>We're taking the largest coin at every step</strong>. This is the
+            coin
+            that benefits us most in the moment, since it gets us closest to our target amount.
+            We're using the greedy algorithm!
+        </div>
+        <div class="blog-section">
+            Turns out, for this coin denomination, this algorithm works for any amount. So, the greedy solution would
+            optimally solve this problem! 🎉
+        </div>
+        <div class="blog-section">
+            Now, Greedy doesn't always give the best answer. What if I changed the coins to
+            <span class="code-inline">[30, 24, 12, 6, 3, 1]</span>? This actually used to be an old British
+            coin system.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coins2.jpeg" alt="Available Coins">
+            <div class="caption">Available coins.</div>
+        </div>
+        <div class="blog-section">
+            Well, if I want to make amount <span class="code-inline">19</span> again, then the greedy solution
+            would first take coin <span class="code-inline">12</span>, then <span class="code-inline">6</span>,
+            and then <span class="code-inline">1</span>, which would be correct.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coin_ex_2.jpeg" alt="Coin Example 2">
+            <div class="caption">Creating 19 with 3 coins.</div>
+        </div>
+        <div class="blog-section">
+            What if the amount was <span class="code-inline">48</span>? Greedy would first take coin
+            <span class="code-inline">30</span>, and then <span class="code-inline">12</span> followed by
+            <span class="code-inline">6</span>.
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coin_ex_3.jpeg" alt="Coin Example 2">
+            <div class="caption">Creating 48 with 3 coins.</div>
+        </div>
+        <div class="blog-section">
+            We used 3 coins, but there's a better way - we can just use
+            coin <span class="code-inline">24</span> twice!
+        </div>
+        <div class="img-wrapper">
+            <img class="blog-img-content" src="../img/coin_ex_4.jpeg" alt="Coin Example 2">
+            <div class="caption">Creating 48 with 2 coins.</div>
+        </div>
+        <div class="blog-section">
+            Because we were greedy and took coin <span class="code-inline">30</span> before
+            we saw coin <span class="code-inline">24</span>, we missed out on the optimal solution.
+        </div>
+        <div class="blog-section">
+            So, for this coin denomination, greedy <strong>doesn't</strong> work in all cases!
+        </div>
+        <div class="blog-section">
+            Clearly, greedy won't solve every dynamic programming question you encounter, but for the
+            problems it does solve, it's usually quick and elegant.
+        </div>
+        <div class="subheading" id="tips">
+            General Tips
+        </div>
+
+        <div class="blog-section">
+            <ul class="list">
+                <li>
+                    <strong>Don't stress.</strong> Relax! Jobs aren't everything, life will go on 😀
+                </li>
+                <li>
+                    <strong>It's all about storing.</strong> Think about how you can break down the problem so that you
+                    can store or precompute results from subproblems, and use that to build your final answer.
+                </li>
+                <li>
+                    <strong>Master the basics.</strong> There's no need to spend hours on crazy elaborate dynamic
+                    programming problems. These are pretty unlikely to be asked. Work on the fundamentals first.
+                </li>
+                <li>
+                    <strong>Practice.</strong> And practice. Oh, and did I mention practice?
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="signature">
+        Ibrahim
+    </div>
+
+
+    <script type="text/javascript" src="../js/nav.js"></script>
+    <script type="text/javascript" src="../js/readmore.js"></script>
+    <script type="text/javascript" src="../js/blog.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-100410300-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
