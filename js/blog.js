@@ -1,5 +1,11 @@
 blog_data = [
     {
+        "title": "Why You Should Learn Vim",
+        "image": "img/keyboard.jpg",
+        "link": "why-you-should-learn-vim",
+        "desc": "Why learning vim is worth it."
+    },
+    {
         "title": "Introduction to Dynamic Programming",
         "image": "img/dp.png",
         "link": "intro-to-dynamic-programming",
