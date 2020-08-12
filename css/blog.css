@@ -5,14 +5,7 @@
 
 .header {
     margin-top: 30px;
-}
-
-.profile-img {
-    width: 80px;
-    border-radius: 50%;
-    border: 2px solid white;
-    margin-top: -40px;
-    margin-left: 20px;
+    margin-bottom: 15px;
 }
 
 .blog-title {
